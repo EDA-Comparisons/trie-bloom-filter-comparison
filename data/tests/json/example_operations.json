@@ -1,0 +1,225 @@
+{
+  "results": {
+    "bloom_filter": {
+      "final_memory_mb": 0.010498046875,
+      "hits": 8,
+      "memory_evolution": [
+        {
+          "delta_memory_mb": 9.5367431640625,
+          "operation": 1
+        },
+        {
+          "delta_memory_mb": 9.537490844726562,
+          "operation": 2
+        },
+        {
+          "delta_memory_mb": 9.538116455078125,
+          "operation": 3
+        },
+        {
+          "delta_memory_mb": 9.538742065429688,
+          "operation": 4
+        },
+        {
+          "delta_memory_mb": 9.53936767578125,
+          "operation": 5
+        },
+        {
+          "delta_memory_mb": 9.540115356445312,
+          "operation": 6
+        },
+        {
+          "delta_memory_mb": 9.540740966796875,
+          "operation": 7
+        },
+        {
+          "delta_memory_mb": 9.541366577148438,
+          "operation": 8
+        },
+        {
+          "delta_memory_mb": 9.5419921875,
+          "operation": 9
+        },
+        {
+          "delta_memory_mb": 9.542861938476562,
+          "operation": 10
+        },
+        {
+          "delta_memory_mb": 9.543487548828125,
+          "operation": 11
+        },
+        {
+          "delta_memory_mb": 9.544113159179688,
+          "operation": 12
+        },
+        {
+          "delta_memory_mb": 9.54473876953125,
+          "operation": 13
+        },
+        {
+          "delta_memory_mb": 9.545364379882812,
+          "operation": 14
+        },
+        {
+          "delta_memory_mb": 9.545989990234375,
+          "operation": 15
+        },
+        {
+          "delta_memory_mb": 9.546615600585938,
+          "operation": 16
+        }
+      ],
+      "misses": 1,
+      "structure": "bloom_filter",
+      "total_time_ms": 7.450615
+    },
+    "hashset": {
+      "final_memory_mb": 0.011474609375,
+      "hits": 8,
+      "memory_evolution": [
+        {
+          "delta_memory_mb": 0.0010919570922851562,
+          "operation": 1
+        },
+        {
+          "delta_memory_mb": 0.001842498779296875,
+          "operation": 2
+        },
+        {
+          "delta_memory_mb": 0.0024747848510742188,
+          "operation": 3
+        },
+        {
+          "delta_memory_mb": 0.0031003952026367188,
+          "operation": 4
+        },
+        {
+          "delta_memory_mb": 0.0037260055541992188,
+          "operation": 5
+        },
+        {
+          "delta_memory_mb": 0.004473686218261719,
+          "operation": 6
+        },
+        {
+          "delta_memory_mb": 0.005199432373046875,
+          "operation": 7
+        },
+        {
+          "delta_memory_mb": 0.005825042724609375,
+          "operation": 8
+        },
+        {
+          "delta_memory_mb": 0.006450653076171875,
+          "operation": 9
+        },
+        {
+          "delta_memory_mb": 0.007320404052734375,
+          "operation": 10
+        },
+        {
+          "delta_memory_mb": 0.007946014404296875,
+          "operation": 11
+        },
+        {
+          "delta_memory_mb": 0.008571624755859375,
+          "operation": 12
+        },
+        {
+          "delta_memory_mb": 0.009197235107421875,
+          "operation": 13
+        },
+        {
+          "delta_memory_mb": 0.009822845458984375,
+          "operation": 14
+        },
+        {
+          "delta_memory_mb": 0.010451316833496094,
+          "operation": 15
+        },
+        {
+          "delta_memory_mb": 0.011076927185058594,
+          "operation": 16
+        }
+      ],
+      "misses": 1,
+      "structure": "hashset",
+      "total_time_ms": 0.124866
+    },
+    "trie": {
+      "final_memory_mb": 0.010498046875,
+      "hits": 8,
+      "memory_evolution": [
+        {
+          "delta_memory_mb": 0.0008392333984375,
+          "operation": 1
+        },
+        {
+          "delta_memory_mb": 0.001953125,
+          "operation": 2
+        },
+        {
+          "delta_memory_mb": 0.0036163330078125,
+          "operation": 3
+        },
+        {
+          "delta_memory_mb": 0.004241943359375,
+          "operation": 4
+        },
+        {
+          "delta_memory_mb": 0.0048675537109375,
+          "operation": 5
+        },
+        {
+          "delta_memory_mb": 0.005615234375,
+          "operation": 6
+        },
+        {
+          "delta_memory_mb": 0.0069427490234375,
+          "operation": 7
+        },
+        {
+          "delta_memory_mb": 0.007568359375,
+          "operation": 8
+        },
+        {
+          "delta_memory_mb": 0.0081939697265625,
+          "operation": 9
+        },
+        {
+          "delta_memory_mb": 0.009063720703125,
+          "operation": 10
+        },
+        {
+          "delta_memory_mb": 0.0096893310546875,
+          "operation": 11
+        },
+        {
+          "delta_memory_mb": 0.01031494140625,
+          "operation": 12
+        },
+        {
+          "delta_memory_mb": 0.0109405517578125,
+          "operation": 13
+        },
+        {
+          "delta_memory_mb": 0.011566162109375,
+          "operation": 14
+        },
+        {
+          "delta_memory_mb": 0.0125579833984375,
+          "operation": 15
+        },
+        {
+          "delta_memory_mb": 0.01318359375,
+          "operation": 16
+        }
+      ],
+      "misses": 1,
+      "structure": "trie",
+      "total_time_ms": 0.099418
+    }
+  },
+  "test_id": "example_operations",
+  "total_operations": 16
+}

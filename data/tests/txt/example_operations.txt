@@ -1,0 +1,16 @@
+SET alice
+SET bob
+SET charlie
+GET alice
+GET bob
+GET david
+SET david
+GET david
+SUG al
+SUG bo
+GET alice
+GET bob
+GET charlie
+GET david
+SET eve
+GET eve
