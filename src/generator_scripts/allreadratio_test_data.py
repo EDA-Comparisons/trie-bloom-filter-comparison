@@ -1,12 +1,12 @@
 import random
 import sys
 
-from src.generate_test_data import generate_usernames
-from src.settings import TXT_DIR
+from src.generator_scripts.usernames import generate_usernames
+from ..settings import TXT_DIR
 
-def generate_benchmark_readratio_files(total_ops, seed=0, prefix=""):
+def generate_benchmark_data(total_ops, seed=0, prefix=""):
     """
-    Gera os arquivos de teste para o experimento do projeto.
+    Gera os arquivos de teste para o experimento variando os tipos das operações
 
     Args:
         total_ops: Número total de operações
@@ -32,18 +32,20 @@ def generate_benchmark_readratio_files(total_ops, seed=0, prefix=""):
 
                 f.write(f"{op} {username}\n")
 
+        print(f"Arquivo gerado com {read_ratio}% leituras e {set_ratio}% de adições e sugestoes")
+
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         print(
-            "Usage: python generate_benchmark_data <total_operations> <seed> <prefix>"
+            "Usage: python allreadratio_test_data <total_operations> <seed> <prefix>"
         )
-        print("Example: python generate_benchmark_data 1000000 42 test")
+        print("Example: python allreadratio_test_data 1000000 42 test")
         sys.exit(1)
 
     total_ops = int(sys.argv[1])
     seed = int(sys.argv[2]) if len(sys.argv) > 2 else 42
     prefix = sys.argv[3] if len(sys.argv) > 3 else ""
 
-    print(f"Gerando 10 arquivos para realização do benchmark")
-    generate_benchmark_readratio_files(total_ops, seed, prefix)
+    print(f"Gerando arquivos para realização de benchmark de tipos de operações")
+    generate_benchmark_data(total_ops, seed, prefix)
     print(f"Arquivos gerados com sucesso!")

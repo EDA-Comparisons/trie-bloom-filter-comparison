@@ -6,4 +6,6 @@ TEST_DIR = DATA_DIR / "tests"
 JSON_DIR = TEST_DIR / "json"
 TXT_DIR = TEST_DIR / "txt"
 
+RUNS = 20
+
 RUST_BINARY = BASE_DIR / "rust" / "target" / "release" / "benchmark"

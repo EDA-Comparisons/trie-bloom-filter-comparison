@@ -2,45 +2,24 @@ import asyncio
 import sys
 from asyncio import subprocess
 
-from src.settings import JSON_DIR, RUST_BINARY, TXT_DIR
+from src.settings import TXT_DIR
+from src.run_rust import run_rust
 
-RUNS = 20
 TEST_FILES = 10
 
-async def run_benchmark(load, interval, verbose=""):
+async def run_benchmark(load, interval="-1", verbose=""):
     for i in range(1, TEST_FILES):
         read_ratio = i * 10
         setsug_ratio = 100 - read_ratio
-        test_file_name =  "benchmark_" + str(read_ratio) + str(setsug_ratio) + "_" + str(load)
-        file_path = TXT_DIR / f"{test_file_name}.txt"
-        await run_rust(file_path, interval, test_file_name, verbose)
-
-async def run_rust(file_path, interval, test_file_name, verbose):
-    for i in range(1, RUNS + 1):
-            process = await asyncio.create_subprocess_exec(
-                RUST_BINARY,
-                str(file_path),
-                interval,
-                test_file_name + "_run_" + str(i),
-                JSON_DIR,
-                verbose,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-            )
-            stdout, stderr = await process.communicate()
-            if stdout:
-                print(stdout.decode())
-            if stderr:
-                print(stderr.decode())
-
+        result_file_name =  "benchmark_" + str(read_ratio) + str(setsug_ratio) + "_" + str(load)
+        file_path = TXT_DIR / f"{result_file_name}.txt"
+        await run_rust(file_path, interval, result_file_name, verbose)
 
 async def main():
-    if(len(sys.argv) == 2):
-        load = int(sys.argv[1])   
-        await run_benchmark(load, "-1")
-
-
-
+    load = int(sys.argv[1])
+    interval = sys.argv[2] if len(sys.argv) > 2 else "-1"
+    verbose = sys.argv[3] if len(sys.argv) > 3 else ""   
+    await run_benchmark(load, interval, verbose)
 
 if __name__ == "__main__":
     asyncio.run(main())

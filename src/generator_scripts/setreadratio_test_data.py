@@ -1,27 +1,12 @@
 import random
-import string
 import sys
 
 from src.settings import TXT_DIR
-
-
-def generate_usernames(count, seed=0, prefix=""):
-    """Gera nomes de usuário aleatórios, podendo ter um prefixo inicial ou não"""
-    random.seed(seed)
-    usernames = set()
-    while len(usernames) < count:
-        username = "".join(
-            random.choices(string.ascii_lowercase, k=random.randint(3, 10))
-        )
-        username = prefix + username
-        usernames.add(username)
-    return list(usernames)
-
-
+from src.generator_scripts.usernames import generate_usernames
 
 # TODO (@pagmaia): Alterar lógica de geração de arquivos de teste
 # TODO (@pagmaia): Adicionar checagem de resultado para cada teste através de "--verbose"
-def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""):
+def generate_setreadratio_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""):
     """
     Gera arquivo de teste com operações aleatórias
 
@@ -44,16 +29,16 @@ def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""
             else:
                 op = "SET"
                 username = random.choice(usernames)
-
+        
             f.write(f"{op} {username}\n")
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
-            "Usage: python generate_test_data.py <output_file> <total_operations> <read_ratio> <seed> <prefix>"
+            "Usage: python setreadratio_test_data.py <output_file> <total_operations> <read_ratio> <seed> <prefix>"
         )
-        print("Example: python generate_test_data.py test_data.txt 1000000 0.5 42 test")
+        print("Example: python setreadratio_test_data.py test_data.txt 1000000 0.5 42 test")
         sys.exit(1)
 
     output_file = sys.argv[1]
@@ -63,5 +48,5 @@ if __name__ == "__main__":
     prefix = sys.argv[5] if len(sys.argv) > 5 else ""
 
     print(f"Gerando {total_ops} operações com {read_ratio * 100:.0f}% leituras...")
-    generate_test_file(output_file, total_ops, read_ratio, seed, prefix)
+    generate_setreadratio_file(output_file, total_ops, read_ratio, seed, prefix)
     print(f"Arquivo '{output_file}' gerado com sucesso!")
