@@ -1,4 +1,5 @@
 import asyncio
+import sys
 from asyncio import subprocess
 
 from src.settings import JSON_DIR, RUST_BINARY, TXT_DIR
@@ -6,11 +7,11 @@ from src.settings import JSON_DIR, RUST_BINARY, TXT_DIR
 RUNS = 20
 TEST_FILES = 10
 
-async def run_benchmark(interval, verbose=""):
+async def run_benchmark(load, interval, verbose=""):
     for i in range(1, TEST_FILES):
         read_ratio = i * 10
         setsug_ratio = 100 - read_ratio
-        test_file_name =  "benchmark_" + str(read_ratio) + str(setsug_ratio)
+        test_file_name =  "benchmark_" + str(read_ratio) + str(setsug_ratio) + "_" + str(load)
         file_path = TXT_DIR / f"{test_file_name}.txt"
         await run_rust(file_path, interval, test_file_name, verbose)
 
@@ -34,7 +35,11 @@ async def run_rust(file_path, interval, test_file_name, verbose):
 
 
 async def main():
-    await run_benchmark("-1")
+    if(len(sys.argv) == 2):
+        load = int(sys.argv[1])   
+        await run_benchmark(load, "-1")
+
+
 
 
 if __name__ == "__main__":

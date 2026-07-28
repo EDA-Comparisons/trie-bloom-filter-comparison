@@ -8,7 +8,7 @@ from src.settings import JSON_DIR
 
 def combine_benchmark_jsons():
     groups = defaultdict(list)
-    pattern = re.compile(r"^benchmark_(\d{4})_run_(\d+)\.json$")
+    pattern = re.compile(r"^benchmark_(\d{4})_(.+)_run_(\d+)\.json$")
 
     for file in glob.glob(os.path.join(JSON_DIR, "*.json")):
         name = os.path.basename(file)
@@ -18,11 +18,14 @@ def combine_benchmark_jsons():
             continue
 
         ratio = match.group(1)
-        run = int(match.group(2))
+        load = int(match.group(2))
+        run = int(match.group(3))
 
-        groups[ratio].append({"path" : file, "run" : run})
+        grupo = (ratio, load)
 
-    for ratio, files in groups.items():
+        groups[grupo].append({"path" : file, "run" : run})
+
+    for (ratio, load), files in groups.items():
         files.sort(key=lambda x : x["run"])
         df = []
         for file in files:
@@ -34,18 +37,10 @@ def combine_benchmark_jsons():
                 print(f"Não foi possível ler o arquivo {file}")
 
         df_combined = pd.concat(df, ignore_index=True)
-        output = f"benchmark_{ratio}_combined.json"
+        output = f"benchmark_{ratio}_{load}_combined.json"
         output_path = os.path.join(JSON_DIR, output)
         df_combined.to_json(output_path, orient="records", indent=4)
-        print(f"Arquivo combinado! {output_path}")
+        print(f"Arquivo combinado! -> {output_path}")
 
 if __name__ == "__main__":
     combine_benchmark_jsons()
-
-        
-
-
-    
-
-
-    

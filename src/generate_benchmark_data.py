@@ -19,7 +19,7 @@ def generate_benchmark_readratio_files(total_ops, seed=0, prefix=""):
     for ratio in range(1, 10):
         read_ratio = ratio * 10
         set_ratio = 100 - read_ratio
-        output_file = "benchmark_" + str(read_ratio) + str(set_ratio)  + ".txt"
+        output_file = "benchmark_" + str(read_ratio) + str(set_ratio) + "_" + str(total_ops) + ".txt"
 
         with open(TXT_DIR / output_file, "w") as f:
             for i in range(total_ops):

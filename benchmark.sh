@@ -14,6 +14,6 @@ clean_json_runs(){
 }
 
 uv run -m src.generate_benchmark_data $LOAD $SEED $PREFIX
-uv run -m src.benchmark
+uv run -m src.benchmark $LOAD
 uv run -m src.combine_jsons
 clean_json_runs
