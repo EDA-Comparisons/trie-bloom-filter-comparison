@@ -19,7 +19,7 @@ def generate_benchmark_readratio_files(total_ops, seed=0, prefix=""):
     for ratio in range(1, 10):
         read_ratio = ratio * 10
         set_ratio = 100 - read_ratio
-        output_file = "benchmark" + str(read_ratio) + str(set_ratio)  + ".txt"
+        output_file = "benchmark_" + str(read_ratio) + str(set_ratio)  + ".txt"
 
         with open(TXT_DIR / output_file, "w") as f:
             for i in range(total_ops):
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     total_ops = int(sys.argv[1])
-    seed = int(sys.argv[2]) if len(sys.argv) > 2 else random.randint(0, 100)
+    seed = int(sys.argv[2]) if len(sys.argv) > 2 else 42
     prefix = sys.argv[3] if len(sys.argv) > 3 else ""
 
     print(f"Gerando 10 arquivos para realização do benchmark")

@@ -51,7 +51,7 @@ def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
-            "Usage: python generate_test_data.py <output_file> <total_operations> [read_ratio] [seed] [prefix]"
+            "Usage: python generate_test_data.py <output_file> <total_operations> <read_ratio> <seed> <prefix>"
         )
         print("Example: python generate_test_data.py test_data.txt 1000000 0.5 42 test")
         sys.exit(1)

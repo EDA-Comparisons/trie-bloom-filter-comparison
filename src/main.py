@@ -1,8 +1,7 @@
 import asyncio
 from asyncio import subprocess
 
-from src.settings import JSON_DIR, RUST_BINARY, TXT_DIR
-
+from src.settings import TXT_DIR, RUST_BINARY, JSON_DIR
 
 async def run_test(test_id, interval, verbose):
 

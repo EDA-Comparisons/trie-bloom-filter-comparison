@@ -30,7 +30,12 @@ case "$1" in
         clean_json
         clean_txt
         ;;
+    "")
+        clean_json
+        clean_txt
+        ;;
     *)
         exit 1
         ;;
+    
 esac
