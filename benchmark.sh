@@ -6,14 +6,7 @@ PREFIX=$3
 INTERVAL=$4
 VERBOSE=$5
 
-clean_json_runs(){
-    TARGET_DIR="data/tests/json"
-    if [ -d "$TARGET_DIR" ]; then
-        find "$TARGET_DIR" -maxdepth 1 -type f -name "*_run_*.json*" -delete
-    else
-        return 1
-    fi
-}
+DIR="$(dirname "$0")"
 
 run_ratioread_benchmark(){
     uv run -m src.generator_scripts.allreadratio_test_data $LOAD $SEED $PREFIX
@@ -51,4 +44,4 @@ run_onlyadd_benchmark
 run_addonlyuser_benchmark
 
 uv run -m src.combine_jsons
-clean_json_runs
+bash "$DIR/clean.sh" benchmark

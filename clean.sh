@@ -19,6 +19,15 @@ clean_txt(){
     fi
 }
 
+clean_json_runs(){
+    TARGET_DIR="data/tests/json"
+    if [ -d "$TARGET_DIR" ]; then
+        find "$TARGET_DIR" -maxdepth 1 -type f -name "*_run_*.json*" -delete
+    else
+        return 1
+    fi
+}
+
 case "$1" in
     json)
         clean_json
@@ -26,12 +35,12 @@ case "$1" in
     txt)
         clean_txt
         ;;
-    both)
+    "")
         clean_json
         clean_txt
         ;;
-    "")
-        clean_json
+    benchmark)
+        clean_json_runs
         clean_txt
         ;;
     *)
