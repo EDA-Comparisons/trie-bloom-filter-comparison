@@ -9,38 +9,28 @@ Sistema de benchmark para comparar **Bloom Filter**, **Trie** e **HashSet** em c
 ### 1. Compilar
 
 ```bash
-cargo build --release
+cargo build --manifest-path rust/Cargo.toml --release 
 ```
 
-### 2. Gerar dados de teste
+### 2. Executar o experimento
 
 ```bash
-uv run -m src.generate_test_data test_data.txt 1000000 0.5
+chmod +x benchmark.sh
+```
+```bash
+./benchmark.sh <load> <seed> <measure-interval> [prefix] [--verbose]
 ```
 
 Parâmetros:
 
-- `test_data.txt`: Arquivo de saída
-- `1000000`: Número total de operações
-- `0.5`: Proporção de leituras (0.0-1.0)
-
-### 3. Executar benchmark
-
-```bash
-./target/release/benchmark <file_path> <measure_interval> <test_id> <save_path> [--verbose]
-```
-
-Parâmetros:
-
-- `file_path`: Arquivo de operações
-- `measure_interval`: Intervalo de medição de memória (-1 = apenas final)
-- `test_1`: ID do teste (gera `test_1.json`)
-- `save_path`: Caminho para salvar os Jsons
+- `load`: Quantidade de operações totais realizadas no experimento
+- `seed`: Seed para reprodutibilidade
+- `measure_interval`: Intervalo de medição de memória (-1 = apenas final) 
+- `prefix`: (Opcional) Cria usernames com um prefixo definido
 - `--verbose`: (Opcional) Imprime resultados na stdout
 
-### 4. Analisar resultados
 
-TODO @(pagmaia): documentar as analises
+### 3. Analisar resultados
 
 ## Formato de Dados
 
