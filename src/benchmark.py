@@ -7,7 +7,7 @@ from src.run_rust import run_rust
 
 TEST_FILES = 10
 
-async def run_benchmark(load, interval="-1", verbose=""):
+async def run_benchmark(load, interval, verbose):
     for i in range(1, TEST_FILES):
         read_ratio = i * 10
         setsug_ratio = 100 - read_ratio

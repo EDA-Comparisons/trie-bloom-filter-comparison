@@ -1,16 +1,38 @@
 set -e
 
+VERBOSE=""
+ARGS=""
+DIR="$(dirname "$0")"
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --verbose)
+      VERBOSE="--verbose"
+      shift 1
+      ;;
+    *)
+      ARGS="$ARGS \"$1\""
+      shift 1
+      ;;
+  esac
+done
+
+eval set -- "$ARGS"
+
+if [ $# -lt 3 ] || [ $# -gt 4 ]; then
+  echo "Quantidade inválida de argumentos"
+  echo "Use: $0 <load> <seed> <interval> [prefix] [--verbose]"
+  exit 1
+fi
+
 LOAD=$1 
 SEED=$2
-PREFIX=$3
-INTERVAL=$4
-VERBOSE=$5
-
-DIR="$(dirname "$0")"
+INTERVAL=$3
+PREFIX="${4:-""}"
 
 run_ratioread_benchmark(){
     uv run -m src.generator_scripts.allreadratio_test_data $LOAD $SEED $PREFIX
-    uv run -m src.benchmark $LOAD $INTERVAL 
+    uv run -m src.benchmark $LOAD $INTERVAL $VERBOSE
 }
 
 run_noadd_benchmark(){

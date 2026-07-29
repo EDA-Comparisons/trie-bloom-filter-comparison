@@ -50,7 +50,7 @@ def combine_benchmark_jsons():
         output = f"benchmark_{id}_{load}_combined.json"
         output_path = os.path.join(JSON_DIR, output)
         df_combined.to_json(output_path, orient="records", indent=4)
-        print(f"Arquivo combinado! -> {output_path}")
+        print(f"Resultados combinados! -> {output_path}")
 
 if __name__ == "__main__":
     combine_benchmark_jsons()
