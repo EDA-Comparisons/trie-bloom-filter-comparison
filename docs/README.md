@@ -18,7 +18,7 @@ cargo build --manifest-path rust/Cargo.toml --release
 chmod +x benchmark.sh
 ```
 ```bash
-./benchmark.sh <load> <seed> <measure-interval> [prefix] [--verbose]
+./benchmark.sh <load> <seed> <measure-interval> [--verbose]
 ```
 
 Parâmetros:
@@ -26,7 +26,6 @@ Parâmetros:
 - `load`: Quantidade de operações totais realizadas no experimento
 - `seed`: Seed para reprodutibilidade
 - `measure_interval`: Intervalo de medição de memória (-1 = apenas final) 
-- `prefix`: (Opcional) Cria usernames com um prefixo definido
 - `--verbose`: (Opcional) Imprime resultados na stdout
 
 

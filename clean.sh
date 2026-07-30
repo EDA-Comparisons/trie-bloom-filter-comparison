@@ -35,12 +35,15 @@ case "$1" in
     txt)
         clean_txt
         ;;
-    "")
-        clean_json
-        clean_txt
+    runs)
+        clean_json_runs
         ;;
     benchmark)
         clean_json_runs
+        clean_txt
+        ;;
+    "")
+        clean_json
         clean_txt
         ;;
     *)
