@@ -29,40 +29,36 @@ LOAD=$1
 SEED=$2
 INTERVAL=$3
 
+format_number() {
+  echo "$1" | awk '
+    $1 >= 1000000 {printf "%.0fm\n", $1 / 1000000; next}
+    $1 >= 1000    {printf "%.0fk\n", $1 / 1000; next}
+    $1 <  1000    {print $1}
+  '
+}
+
+LOAD_FORMATTED=$(format_number "$LOAD")
+
 run_ratioread_benchmark(){
     uv run -m src.generator_scripts.allreadratio_test_data $LOAD $SEED
     uv run -m src.benchmark $LOAD $INTERVAL $VERBOSE
 }
 
-run_noadd_benchmark(){
-    OUTPUT_TXT_FILE="benchmark_noadd_${LOAD}.txt"
+run_100get_benchmark(){
+    OUTPUT_TXT_FILE="benchmark_100get_${LOAD_FORMATTED}.txt"
     uv run -m src.generator_scripts.setreadratio_test_data $OUTPUT_TXT_FILE $LOAD 1 $SEED
     uv run -m src.run_rust $OUTPUT_TXT_FILE $INTERVAL $VERBOSE
 }
 
-run_onlyuser_benchmark(){
-    OUTPUT_TXT_FILE="benchmark_onlyuser_${LOAD}.txt"
-    uv run -m src.generator_scripts.onlyuser_test_data 1 $OUTPUT_TXT_FILE $LOAD $SEED
-    uv run -m src.run_rust $OUTPUT_TXT_FILE $INTERVAL $VERBOSE
-}
-
-run_onlyadd_benchmark(){
-    OUTPUT_TXT_FILE="benchmark_onlyadd_${LOAD}.txt"
+run_100set_benchmark(){
+    OUTPUT_TXT_FILE="benchmark_100set_${LOAD_FORMATTED}.txt"
     uv run -m src.generator_scripts.setreadratio_test_data $OUTPUT_TXT_FILE $LOAD 0 $SEED
     uv run -m src.run_rust $OUTPUT_TXT_FILE $INTERVAL $VERBOSE
 }
 
-run_addonlyuser_benchmark(){
-    OUTPUT_TXT_FILE="benchmark_addonlyuser_${LOAD}.txt"
-    uv run -m src.generator_scripts.onlyuser_test_data 2 $OUTPUT_TXT_FILE $LOAD $SEED
-    uv run -m src.run_rust $OUTPUT_TXT_FILE $INTERVAL $VERBOSE
-}
-
 run_ratioread_benchmark
-run_noadd_benchmark
-run_onlyuser_benchmark
-run_onlyadd_benchmark
-run_addonlyuser_benchmark
+run_100get_benchmark
+run_100set_benchmark
 
 uv run -m src.combine_jsons
-bash "$DIR/clean.sh" runs
+bash "$DIR/clean.sh" benchmark                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

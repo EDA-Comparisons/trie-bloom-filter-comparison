@@ -11,3 +11,11 @@ def generate_usernames(count, seed=0):
         )
         usernames.add(username)
     return list(usernames)
+
+def load_str(load):
+    if(load < 1000):
+        return str(load)
+    if(load < 1000000):
+        return str(int(load / 1000)) + "k"
+    
+    return str(int(load / 1000000)) + "m"

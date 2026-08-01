@@ -7,11 +7,10 @@ from collections import defaultdict
 from src.settings import JSON_DIR
 
 PATTERNS = [re.compile(r"^benchmark_(\d{4})_(.+)_run_(\d+)\.json$"), 
-            re.compile(r"^benchmark_(noadd)_(.+)_run_(\d+)\.json$"),
-            re.compile(r"^benchmark_(onlyuser)_(.+)_run_(\d+)\.json$"),
-            re.compile(r"^benchmark_(onlyadd)_(.+)_run_(\d+)\.json$"),
-            re.compile(r"^benchmark_(addonlyuser)_(.+)_run_(\d+)\.json$")
+            re.compile(r"^benchmark_(100get)_(.+)_run_(\d+)\.json$"),
+            re.compile(r"^benchmark_(100set)_(.+)_run_(\d+)\.json$"),
             ]
+
 
 def combine_benchmark_jsons():
     groups = defaultdict(list)
@@ -28,7 +27,7 @@ def combine_benchmark_jsons():
             continue
 
         id = match.group(1)
-        load = int(match.group(2))
+        load = match.group(2)
         run = int(match.group(3))
 
         grupo = (id, load)
@@ -47,7 +46,7 @@ def combine_benchmark_jsons():
                 print(f"Não foi possível ler o arquivo {file}")
 
         df_combined = pd.concat(df, ignore_index=True)
-        output = f"benchmark_{id}_{load}_combined.json"
+        output = f"benchmark_{id}_{load}.json"
         output_path = os.path.join(JSON_DIR, output)
         df_combined.to_json(output_path, orient="records", indent=4)
         print(f"Resultados combinados! -> {output_path}")

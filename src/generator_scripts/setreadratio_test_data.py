@@ -2,7 +2,7 @@ import random
 import sys
 
 from src.settings import TXT_DIR
-from src.generator_scripts.usernames import generate_usernames
+from src.generator_scripts.utils import generate_usernames
 
 # TODO (@pagmaia): Alterar lógica de geração de arquivos de teste
 # TODO (@pagmaia): Adicionar checagem de resultado para cada teste através de "--verbose"
