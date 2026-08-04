@@ -99,7 +99,7 @@ def build_operations(config):
 
     pre_populate_usernames = []
     if pre_populate > 0:
-        pre_pool = generate_usernames(pre_populate, seed=seed + 2, prefix=prefix)
+        pre_pool = generate_usernames(pre_populate, seed=seed, prefix=prefix)
         pre_populate_usernames = [f"SET {u}" for u in pre_pool]
 
     operations = []
