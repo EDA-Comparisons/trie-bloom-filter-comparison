@@ -1,35 +1,25 @@
 import asyncio
-from asyncio import subprocess
 
-from src.settings import JSON_DIR, RUST_BINARY, TXT_DIR
-
-
-async def run_test(test_id, interval, structures=None, verbose=False):
-    file_path = TXT_DIR / f"{test_id}.txt"
-
-    cmd = [RUST_BINARY, str(file_path), str(interval), test_id, str(JSON_DIR)]
-
-    if structures:
-        for s in structures:
-            cmd.append(f"--{s}")
-
-    if verbose:
-        cmd.append("--verbose")
-
-    process = await asyncio.create_subprocess_exec(
-        *cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
-    stdout, stderr = await process.communicate()
-    if stdout:
-        print(stdout.decode())
-    if stderr:
-        print(stderr.decode())
+from src.run_benchmarks import run_all_benchmarks
+from src.run_tests import generate_all_tests
 
 
 async def main():
-    await run_test("example_operations", 1, verbose=True)
+    print("=" * 60)
+    print("ETAPA 1: Geração dos arquivos de teste")
+    print("=" * 60)
+    generate_all_tests()
+
+    print("\n" + "=" * 60)
+    print("ETAPA 2: Execução dos benchmarks")
+    print("=" * 60)
+    await run_all_benchmarks(interval=10000)
+
+    print("\n" + "=" * 60)
+    print("ETAPA 3: Análise")
+    print("=" * 60)
+    print("Benchmarks concluídos. Abra notebooks/analysis.ipynb para análise.")
+    print("Execute: jupyter notebook notebooks/analysis.ipynb")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,6 @@
+test_id,Bloom Filter,Trie,HashSet
+example_operations,0.0105,0.0105,0.0115
+test_bloom_only,0.0,,
+test_final,0.0,0.0002,0.0001
+test_new,0.0,0.0002,0.0001
+test_refactored,0.0,0.0003,0.0002
