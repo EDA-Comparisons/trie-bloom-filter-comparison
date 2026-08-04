@@ -1,0 +1,42 @@
+{
+  "results": {
+    "bloom_filter": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.0,
+      "hits": 8,
+      "memory_evolution": [],
+      "misses": 1,
+      "ops_per_second": 32542.880329659383,
+      "structure": "bloom_filter",
+      "time_evolution": [],
+      "total_time_ms": 0.49165899999999996
+    },
+    "hashset": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.00018215179443359375,
+      "hits": 8,
+      "memory_evolution": [],
+      "misses": 1,
+      "ops_per_second": 123214.35447229602,
+      "structure": "hashset",
+      "time_evolution": [],
+      "total_time_ms": 0.129855
+    },
+    "trie": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.00032711029052734375,
+      "hits": 8,
+      "memory_evolution": [],
+      "misses": 1,
+      "ops_per_second": 134347.65815238384,
+      "structure": "trie",
+      "time_evolution": [],
+      "total_time_ms": 0.11909399999999999
+    }
+  },
+  "test_id": "test_refactored",
+  "total_operations": 16
+}
