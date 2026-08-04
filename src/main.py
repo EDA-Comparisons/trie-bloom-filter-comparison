@@ -4,17 +4,20 @@ from asyncio import subprocess
 from src.settings import JSON_DIR, RUST_BINARY, TXT_DIR
 
 
-async def run_test(test_id, interval, verbose):
-
+async def run_test(test_id, interval, structures=None, verbose=False):
     file_path = TXT_DIR / f"{test_id}.txt"
-    print(file_path)
+
+    cmd = [RUST_BINARY, str(file_path), str(interval), test_id, str(JSON_DIR)]
+
+    if structures:
+        for s in structures:
+            cmd.append(f"--{s}")
+
+    if verbose:
+        cmd.append("--verbose")
+
     process = await asyncio.create_subprocess_exec(
-        RUST_BINARY,
-        str(file_path),
-        interval,
-        test_id,
-        JSON_DIR,
-        verbose,
+        *cmd,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
@@ -26,7 +29,7 @@ async def run_test(test_id, interval, verbose):
 
 
 async def main():
-    await run_test("example_operations", "1", "--verbose")
+    await run_test("example_operations", 1, verbose=True)
 
 
 if __name__ == "__main__":

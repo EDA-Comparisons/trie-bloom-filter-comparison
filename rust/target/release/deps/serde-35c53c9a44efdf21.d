@@ -1,0 +1,14 @@
+/home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/deps/serde-35c53c9a44efdf21.d: /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/build/serde-2faa4b0702ac32ed/out/private.rs
+
+/home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/deps/libserde-35c53c9a44efdf21.rlib: /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/build/serde-2faa4b0702ac32ed/out/private.rs
+
+/home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/deps/libserde-35c53c9a44efdf21.rmeta: /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/build/serde-2faa4b0702ac32ed/out/private.rs
+
+/home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs:
+/home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs:
+/home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs:
+/home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs:
+/home/joaogabriels/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs:
+/home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/build/serde-2faa4b0702ac32ed/out/private.rs:
+
+# env-dep:OUT_DIR=/home/joaogabriels/j1/ufcg/leda/projeto-final/rust/target/release/build/serde-2faa4b0702ac32ed/out

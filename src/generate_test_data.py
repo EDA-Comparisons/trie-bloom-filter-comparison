@@ -18,7 +18,6 @@ def generate_usernames(count, seed=0, prefix=""):
     return list(usernames)
 
 
-
 # TODO (@pagmaia): Alterar lógica de geração de arquivos de teste
 # TODO (@pagmaia): Adicionar checagem de resultado para cada teste através de "--verbose"
 def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""):
@@ -38,13 +37,14 @@ def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""
 
     with open(TXT_DIR / output_file, "w") as f:
         for i in range(total_ops):
-            if random.random() < read_ratio:
-                op = random.choice(["GET", "SUG"])
-                username = random.choice(usernames)
+            r = random.random()
+            if r < read_ratio * 0.7:
+                op = "GET"
+            elif r < read_ratio:
+                op = random.choice(["SUG", "NEW"])
             else:
                 op = "SET"
-                username = random.choice(usernames)
-
+            username = random.choice(usernames)
             f.write(f"{op} {username}\n")
 
 

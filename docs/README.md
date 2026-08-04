@@ -27,16 +27,23 @@ Parâmetros:
 ### 3. Executar benchmark
 
 ```bash
-./target/release/benchmark <file_path> <measure_interval> <test_id> <save_path> [--verbose]
+./rust/target/release/benchmark <file_path> <measure_interval> <test_id> <save_path> [OPTIONS]
 ```
 
-Parâmetros:
+Parâmetros posicionais:
 
 - `file_path`: Arquivo de operações
-- `measure_interval`: Intervalo de medição de memória (-1 = apenas final)
-- `test_1`: ID do teste (gera `test_1.json`)
+- `measure_interval`: Intervalo de medição (-1 = apenas final)
+- `test_id`: ID do teste (gera `test_id.json`)
 - `save_path`: Caminho para salvar os Jsons
-- `--verbose`: (Opcional) Imprime resultados na stdout
+
+Options:
+
+- `--bloom`: Roda apenas Bloom Filter
+- `--trie`: Roda apenas Trie
+- `--hashset`: Roda apenas HashSet
+- `--verbose`: Imprime resultados na stdout
+- Se nenhuma flag de estrutura for passada, roda todas
 
 ### 4. Analisar resultados
 
@@ -55,13 +62,15 @@ SUG al
 SET bob
 GET bob
 GET charlie
+NEW username
 ```
 
 **Operações:**
 
 - `SET <username>`: Adiciona um usuário
 - `GET <username>`: Verifica se existe (retorna true/false)
-- `SUG <username>`: Sugere próximo username disponível
+- `SUG <username>`: Autocomplete - retorna nome existente com esse prefixo
+- `NEW <username>`: Retorna um nome disponível (tenta username, username1, username2, ...)
 
 ### Arquivo de Resultados (saída)
 
@@ -76,11 +85,18 @@ Arquivo JSON com métricas de cada estrutura:
       "structure": "hashset",
       "hits": 500000,
       "misses": 500000,
+      "false_positives": 0,
+      "false_positive_rate": 0.0,
       "total_time_ms": 1234.56,
+      "ops_per_second": 810000.0,
       "final_memory_mb": 45.2,
       "memory_evolution": [
         {"operation": 10000, "delta_memory_mb": 0.5},
         {"operation": 20000, "delta_memory_mb": 1.2}
+      ],
+      "time_evolution": [
+        {"operation": 10000, "elapsed_ms": 12.3},
+        {"operation": 20000, "elapsed_ms": 25.6}
       ]
     },
     "trie": { ... },
@@ -93,25 +109,25 @@ Arquivo JSON com métricas de cada estrutura:
 
 ### Como funciona
 
-1. **Carregamento**: Arquivo é carregado em memória
-2. **Baseline**: Memória inicial é registrada
-3. **Processamento**: Operações são executadas
-4. **Medições**: A cada intervalo N, memória é medida
-5. **Delta**: Diferença entre memória inicial e atual
+1. **Baseline**: Memória inicial da estrutura (vazia) é registrada via `deepsize`
+2. **Processamento**: Operações são executadas
+3. **Medições**: A cada intervalo N, `deep_size_of()` mede apenas a estrutura
+4. **Delta**: Diferença entre memória inicial e atual
 
 ### Intervalo de Medição
 
-- **N > 0**: Mede memória a cada N operações
+- **N > 0**: Mede memória e tempo a cada N operações
 - **N = -1**: Mede apenas no final
-- **N = 0**: Não mede (não recomendado)
 
 ### Precisão
 
-Usa `GlobalAlloc` em Rust para rastreamento preciso de alocações:
+Usa crate `deepsize` para medir memória de cada estrutura individualmente:
 
-- Conta cada `alloc()` e `dealloc()`
-- Não inclui overhead do sistema operacional
-- Não inclui stack memory
+- Mede apenas a estrutura testada (não o processo inteiro)
+- Ground Truth HashSet não é medido (existe apenas para validar falsos positivos)
+- Bloom Filter: mede o bitset (`num_bits / 8` bytes)
+- Trie: mede chaves + overhead estimado por nó
+- HashSet: medido via `#[derive(DeepSizeOf)]`
 
 ## Exemplos de Testes
 
@@ -121,21 +137,25 @@ TODO @(pagmaia): documentar e adicionar exemplos de testes
 
 ### HashSet
 
-- **Vantagens**: Rápido para GET, suporte a SUG
+- Usa `std::collections::HashSet`
+- **Vantagens**: Rápido para GET, suporte a SUG e NEW
 - **Desvantagens**: Alto consumo de memória, lento para SUG em grandes datasets
 - **Caso de uso**: Datasets pequenos a médios com muitas leituras
 
 ### Trie
 
-- **Vantagens**: Bom para SUG, memória razoável
+- Usa crate `radix_trie` (trie compactada)
+- **Vantagens**: Bom para SUG (autocomplete), memória razoável
 - **Desvantagens**: Mais lento que HashSet para GET puro
 - **Caso de uso**: Quando SUG é importante, datasets médios
 
 ### Bloom Filter
 
+- Usa crate `fastbloom` (bitset otimizado)
 - **Vantagens**: Muito baixo consumo de memória, rápido
 - **Desvantagens**: Falsos positivos, sem SUG, sem remoção
 - **Caso de uso**: Verificação rápida com tolerância a falsos positivos
+- **Falsos positivos**: Mensurados via Ground Truth HashSet paralelo
 
 ### Memória não muda
 

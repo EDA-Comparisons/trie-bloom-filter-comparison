@@ -1,0 +1,9 @@
+SET alice
+SET bob
+GET alice
+GET david
+NEW alice
+NEW david
+SUG al
+SET alice1
+NEW alice

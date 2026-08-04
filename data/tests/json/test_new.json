@@ -1,0 +1,144 @@
+{
+  "results": {
+    "bloom_filter": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.0,
+      "hits": 1,
+      "memory_evolution": [
+        {
+          "delta_memory_mb": 0.0,
+          "operation": 2
+        },
+        {
+          "delta_memory_mb": 0.0,
+          "operation": 4
+        },
+        {
+          "delta_memory_mb": 0.0,
+          "operation": 6
+        },
+        {
+          "delta_memory_mb": 0.0,
+          "operation": 8
+        }
+      ],
+      "misses": 1,
+      "ops_per_second": 31370.69001575505,
+      "structure": "bloom_filter",
+      "time_evolution": [
+        {
+          "elapsed_ms": 0.142028,
+          "operation": 2
+        },
+        {
+          "elapsed_ms": 0.161906,
+          "operation": 4
+        },
+        {
+          "elapsed_ms": 0.191081,
+          "operation": 6
+        },
+        {
+          "elapsed_ms": 0.273597,
+          "operation": 8
+        }
+      ],
+      "total_time_ms": 0.28689200000000004
+    },
+    "hashset": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.0000820159912109375,
+      "hits": 1,
+      "memory_evolution": [
+        {
+          "delta_memory_mb": 0.0000762939453125,
+          "operation": 2
+        },
+        {
+          "delta_memory_mb": 0.0000762939453125,
+          "operation": 4
+        },
+        {
+          "delta_memory_mb": 0.0000762939453125,
+          "operation": 6
+        },
+        {
+          "delta_memory_mb": 0.0000820159912109375,
+          "operation": 8
+        }
+      ],
+      "misses": 1,
+      "ops_per_second": 129178.56784027784,
+      "structure": "hashset",
+      "time_evolution": [
+        {
+          "elapsed_ms": 0.011772,
+          "operation": 2
+        },
+        {
+          "elapsed_ms": 0.032942,
+          "operation": 4
+        },
+        {
+          "elapsed_ms": 0.047129000000000004,
+          "operation": 6
+        },
+        {
+          "elapsed_ms": 0.060745,
+          "operation": 8
+        }
+      ],
+      "total_time_ms": 0.06967100000000001
+    },
+    "trie": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.0001964569091796875,
+      "hits": 1,
+      "memory_evolution": [
+        {
+          "delta_memory_mb": 0.00012969970703125,
+          "operation": 2
+        },
+        {
+          "delta_memory_mb": 0.00012969970703125,
+          "operation": 4
+        },
+        {
+          "delta_memory_mb": 0.00012969970703125,
+          "operation": 6
+        },
+        {
+          "delta_memory_mb": 0.0001964569091796875,
+          "operation": 8
+        }
+      ],
+      "misses": 1,
+      "ops_per_second": 101307.9988293298,
+      "structure": "trie",
+      "time_evolution": [
+        {
+          "elapsed_ms": 0.020509,
+          "operation": 2
+        },
+        {
+          "elapsed_ms": 0.042790999999999996,
+          "operation": 4
+        },
+        {
+          "elapsed_ms": 0.059312,
+          "operation": 6
+        },
+        {
+          "elapsed_ms": 0.07757700000000001,
+          "operation": 8
+        }
+      ],
+      "total_time_ms": 0.088838
+    }
+  },
+  "test_id": "test_new",
+  "total_operations": 9
+}
