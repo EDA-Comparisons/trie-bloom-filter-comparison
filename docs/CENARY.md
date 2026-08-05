@@ -15,7 +15,7 @@ Porém há mais de 100 mil requisições/s, o que faz com que abordagens tradici
 - Falsos positivos
 - Não permite remoção de elementos
 - Não facilmente expansível
-- Não dinânimaco
+- Não dinâmico
 
 - Economia de memória
 - Performance
@@ -38,64 +38,145 @@ Porém há mais de 100 mil requisições/s, o que faz com que abordagens tradici
 
 ### Operações
 
-- get "Nome do usuário" -> Existe ou Não Existe
-- add "Nome do usuário" -> Adiciona usuário
-- suggest "Nome do usuário" -> Nome lexicograficamente disponível mais próximo
+- GET "Nome do usuário" -> Existe ou Não Existe
+- ADD "Nome do usuário" -> Adiciona usuário
+- SUG "Nome do usuário" -> Nome existente com o prefixo "Nome do usuário"
+- NEW "Nome do usuário" -> Nome lexicograficamente disponível mais próximo
 
 ## Testes
 
-### teste 1
+TOTAL_OPS = Quantidade de operações escolhida, para esse experimento, foram escolhidas as cargas 10 mil, 100 mil, 500 mil e 1 milhão.
 
-- Query em 10M de usuários que não existem
+### Teste 1
 
-### teste 2
+- TOTAL_OPS operações GET em usuários que não existem
 
-- Query em 10M de usuário que existem
+Objetivo: Medir performance de busca negativa e taxa de falsos positivos do Bloom Filter. Trie e HashSet devem ter 0% falsos positivos.
 
-### teste 3
+Estruturas relevantes: bloom_filter (falsos positivos), trie, hashset
 
-- Adicionar o mesmo usuário 10M de vezes
+### Teste 2
 
-### teste 4
+- Adicionar 500 mil usuários
+- TOTAL_OPS operações GET em usuários que existem
 
-- Adicionar um usuário e Query 10M de vezes
+Objetivo: Medir performance de busca positiva. Todas as estruturas devem ter 100% hits.
 
-### teste 5
+Estruturas relevantes: bloom_filter, trie, hashset
 
-- Adicionar 10M de usuários e Query 10M de vezes
+### Teste 3
 
-### teste 6
+- Adicionar o mesmo usuário (SET) para TOTAL_OPS operações
 
-- 10% read 90% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+Objetivo: Medir overhead de inserção duplicada. Bloom Filter e HashSet , devem rejeitar duplicatas rapidamente. Trie também.
 
-### teste 7
+Estruturas relevantes: bloom_filter, trie, hashset
 
-- 20% read 80% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+### Teste 4
 
-### teste 8
+- Adicionar um usuário (SET) e GET para TOTAL_OPS operações
 
-- 30% read 70% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+Objetivo: Medir custo de lookup repetido do mesmo elemento. Bloom Filter deve responder rapidamente. Trie e HashSet também.
 
-### teste 9
+Estruturas relevantes: bloom_filter, trie, hashset
 
-- 40% read 60% write (Amostra 10M) [Ordem Aleatória] (100 runs)
 
-### teste 10
+### Teste 5
 
-- 50% read 50% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+- 10% read (GET) 90% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
 
-### teste 11
+Objetivo: Cenário com predominância de escrita. Medir throughput de SET.
 
-- 60% read 40% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+Estruturas relevantes: bloom_filter, trie, hashset
 
-### teste 12
+### Teste 6
 
-- 70% read 30% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+- 20% read (GET) 80% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
 
-### teste 13
+Objetivo: Cenário com alta proporção de escrita.
 
-- 80% read 20% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+Estruturas relevantes: bloom_filter, trie, hashset
 
-### teste 14
 
-- 90% read 10% write (Amostra 10M) [Ordem Aleatória] (100 runs)
+### Teste 7
+
+- 30% read (GET) 70% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Cenário com maioria de escrita.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+### Teste 8
+
+- 40% read (GET) 60% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Cenário com leve maioria de escrita.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+
+### Teste 9
+
+- 50% read (GET) 50% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Cenário perfeitamente balanceado entre leitura e escrita.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+
+### Teste 10
+
+- 60% read (GET) 40% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Cenário com leve maioria de leitura.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+### Teste 11
+
+- 70% read (GET) 30% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Cenário com maioria de leitura.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+### Teste 12
+
+- 80% read (GET) 20% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Cenário com alta proporção de leitura.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+### Teste 13
+
+- 90% read (GET) 10% write (SET) para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Cenário com predominância de leitura. Medir throughput de GET.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+### Teste 14
+
+- 25% GET, 25% SET, 25% SUG, 25% NEW para TOTAL_OPS operações [Ordem Aleatória] 
+
+Objetivo: Mistura homogênea de todas as operações. SUG não faz sentido em Bloom Filter (retorna string vazia). NEW verifica disponibilidade de nome.
+
+Estruturas relevantes: bloom_filter (SUG vazio), trie (SUG eficiente), hashset
+
+### Teste 15
+
+- 50% GET, 50% SET para TOTAL_OPS operações [Nomes ordenados alfabeticamente] 
+
+Objetivo: Medir impacto de localidade/cache quando operações seguem ordem lexicográfica. Pode beneficiar Trie (traversal ordenado) vs HashSet.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
+### Teste 16
+
+- 50% GET, 50% SET para TOTAL_OPS operações [Nomes agrupados por prefixo] 
+
+Objetivo: Medir impacto de agrupamento por prefixo. Trie pode se beneficiar por acessar os mesmos nós repetidamente. HashSet e Bloom Filter menos afetados.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
