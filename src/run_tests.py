@@ -227,6 +227,18 @@ def create_tests(TOTAL_OPS=1000000):
         "username_pool_size": TOTAL_OPS,
     }))
 
+    # Teste 17: SET em diferentes
+    # Objetivo: Medir impacto de agrupamento por prefixo. Trie pode se beneficiar
+    # por acessar os mesmos nós repetidamente. HashSet e Bloom Filter menos afetados.
+    # Estruturas relevantes: bloom_filter, trie, hashset
+    TEST_17 = (f"test_17_onlyset_{format_ops(TOTAL_OPS)}", build_operations({
+        "total_ops": TOTAL_OPS,
+        "ops": ["SET"],
+        "ratios": [1.0],
+        "seed": 42,
+        "username_pool_size": TOTAL_OPS,
+    }))
+
     # ---------------------------------------------------------------------------
     # Lista de todos os testes
     # ---------------------------------------------------------------------------
@@ -234,8 +246,8 @@ def create_tests(TOTAL_OPS=1000000):
     ALL_TESTS = [
         TEST_01, TEST_02, TEST_03, TEST_04, TEST_05,
         TEST_06, TEST_07, TEST_08, TEST_09, TEST_10,
-        TEST_11, TEST_12, TEST_12, TEST_13, TEST_14,
-        TEST_15, TEST_16,
+        TEST_11, TEST_12, TEST_13, TEST_14,
+        TEST_15, TEST_16, TEST_17
     ]
     return ALL_TESTS
 

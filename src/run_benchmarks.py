@@ -50,16 +50,17 @@ async def run_all_benchmarks(interval=10000, structures=None):
         structures = ["bloom", "trie", "hashset"]
 
     txt_files = sorted(TXT_DIR.glob("*.txt"))
-    total = len(txt_files) - 1
+    total = sum(1 for item in TXT_DIR.rglob("test_*") if item.is_file())
     print(f"\n{'=' * 60}")
     print(f"Executando {total} benchmarks com intervalo={interval}")
     print(f"Estruturas: {', '.join(structures)}")
     print(f"{'=' * 60}\n")
 
-    for i, txt_file in enumerate(txt_files, 0):
+    for txt_file in txt_files:
         test_id = txt_file.stem
         if re.match(r"^test_\d{2}_", test_id):
-            print(f"[{i}/{total}] Executando: {test_id}")
+            number =  test_id.split("_")[1]
+            print(f"[{number}/{total}] Executando: {test_id}")
             start = time.time()
             for i in range(1, RUNS + 1):
                 await run_single_benchmark(test_id, interval, i, structures)
