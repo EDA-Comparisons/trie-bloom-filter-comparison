@@ -1,5 +1,9 @@
+use deepsize::DeepSizeOf;
 use std::collections::HashSet;
 
+use crate::structure::DataStructure;
+
+#[derive(DeepSizeOf)]
 pub struct HashSetStructure {
     set: HashSet<String>,
 }
@@ -10,25 +14,42 @@ impl HashSetStructure {
             set: HashSet::new(),
         }
     }
+}
 
-    pub fn add(&mut self, username: &str) -> bool {
-        self.set.insert(username.to_string())
+impl DataStructure for HashSetStructure {
+    fn add(&mut self, key: &str) -> bool {
+        self.set.insert(key.to_string())
     }
 
-    pub fn contains(&self, username: &str) -> bool {
-        self.set.contains(username)
+    fn contains(&self, key: &str) -> bool {
+        self.set.contains(key)
     }
 
-    pub fn suggest(&self, username: &str) -> String {
+    fn suggest(&self, prefix: &str) -> String {
         let mut candidates: Vec<_> = self.set.iter().collect();
         candidates.sort();
+        candidates
+            .into_iter()
+            .find(|c| c.starts_with(prefix))
+            .cloned()
+            .unwrap_or_default()
+    }
 
-        for candidate in candidates {
-            if candidate.as_str() > username {
-                return candidate.clone();
-            }
+    fn new_name(&mut self, key: &str) -> String {
+        if !self.contains(key) {
+            return key.to_string();
         }
+        let mut i = 1;
+        loop {
+            let candidate = format!("{}{}", key, i);
+            if !self.contains(&candidate) {
+                return candidate;
+            }
+            i += 1;
+        }
+    }
 
-        String::new()
+    fn name(&self) -> &'static str {
+        "hashset"
     }
 }

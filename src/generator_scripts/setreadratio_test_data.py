@@ -2,7 +2,20 @@ import random
 import sys
 
 from src.settings import TXT_DIR
-from src.generator_scripts.utils import generate_usernames
+
+
+def generate_usernames(count, seed=0, prefix=""):
+    """Gera nomes de usuário aleatórios, podendo ter um prefixo inicial ou não"""
+    random.seed(seed)
+    usernames = set()
+    while len(usernames) < count:
+        username = "".join(
+            random.choices(string.ascii_lowercase, k=random.randint(3, 10))
+        )
+        username = prefix + username
+        usernames.add(username)
+    return list(usernames)
+
 
 # TODO (@pagmaia): Alterar lógica de geração de arquivos de teste
 # TODO (@pagmaia): Adicionar checagem de resultado para cada teste através de "--verbose"
@@ -22,13 +35,14 @@ def generate_setreadratio_file(output_file, total_ops, read_ratio=0.5, seed=42):
 
     with open(TXT_DIR / output_file, "w") as f:
         for i in range(total_ops):
-            if random.random() < read_ratio:
+            r = random.random()
+            if r < read_ratio * 0.7:
                 op = "GET"
-                username = random.choice(usernames)
+            elif r < read_ratio:
+                op = random.choice(["SUG", "NEW"])
             else:
                 op = "SET"
-                username = random.choice(usernames)
-        
+            username = random.choice(usernames)
             f.write(f"{op} {username}\n")
 
 

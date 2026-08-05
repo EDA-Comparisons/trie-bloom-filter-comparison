@@ -4,40 +4,59 @@
 
 ### 1. Camada Rust
 
-- Implementação de 3 estruturas de dados
+- Implementação de 3 estruturas de dados via crates e std
 - **HashSet**: Usa `std::collections::HashSet`
-- **Trie**: Usa `std::collections::BTreeMap`
-- **Bloom Filter**: Usa `Vec<bool>`
-- CLI com argumentos: `<file_path> <measure_interval> <test_id> <save_path> [--verbose]`
-- Leitura de arquivo `.txt` com operações (SET, GET, SUG)
-- Medição de memória com `GlobalAlloc`
+- **Trie**: Usa crate `radix_trie` (trie compactada)
+- **Bloom Filter**: Usa crate `fastbloom` (bitset otimizado)
+- CLI com `clap`: `<file_path> <measure_interval> <test_id> <save_path> [OPTIONS]`
+- Flags seletivas: `--bloom`, `--trie`, `--hashset`, `--verbose`
+- Leitura de arquivo `.txt` com operações (SET, GET, SUG, NEW)
+- Medição de memória com `deepsize` (por estrutura individual)
 - Saída JSON com métricas
 
 ### 2. Medição de Memória
 
-- Rastreamento em tempo real com `GlobalAlloc`
+- Usa crate `deepsize` (não GlobalAlloc)
+- Mede apenas a estrutura testada, não o processo inteiro
 - Delta de memória (diferença entre inicial e atual)
 - Intervalo configurável:
-- `-1`: Mede apenas no final
-- `> 0`: Mede a cada N operações
+  - `-1`: Mede apenas no final
+  - `> 0`: Mede a cada N operações
 - Evolução de memória registrada no JSON
+- Ground Truth HashSet não é medido
 
-### 3. I/O de Dados
+### 3. Medição de Tempo
 
-- Entrada: Arquivo `.txt` com formato `<OP> <DATA>`
-- Saída: JSON com métricas detalhadas
-- Sem interferência em memória ou runtime
-- Diretório de saída configurável via argumento
+- `Instant::now()` apenas envolvendo a operação da estrutura
+- Operações no Ground Truth ficam fora do timer
+- `time_evolution`: tempo decorrido a cada N operações
+- `ops_per_second`: operações por segundo
 
-### 4. Output Verbose
+### 4. Operações
+
+- `SET <username>`: Adiciona um usuário
+- `GET <username>`: Verifica se existe (true/false)
+- `SUG <prefix>`: Autocomplete - retorna nome existente com o prefixo
+- `NEW <username>`: Retorna nome disponível (tenta username, username1, username2, ...)
+
+### 5. Ground Truth HashSet
+
+- HashSet paralelo como fonte da verdade para todas as estruturas
+- Compara resposta da estrutura com o GT a cada GET
+- Conta falsos positivos (estrutura diz true, GT diz false)
+- `false_positive_rate` = false_positives / hits
+- GT não é medido em memória nem em tempo
+
+### 6. Output Verbose
 
 - Cada operação imprime resultado:
-- **SET**: Newline (confirmação)
-- **GET**: `true` ou `false`
-- **SUG**: Nome sugerido ou vazio
+  - **SET**: Newline
+  - **GET**: `true` ou `false`
+  - **SUG**: Nome existente ou vazio
+  - **NEW**: Nome disponível
 - Tabular para análise posterior
 
-### 5. Documentação
+### 7. Documentação
 
 - [README.md](./README.md) - Visão geral do projeto
 - [CENARY.md](./CENARY.md) - Cenário que o projeto busca resolver
@@ -45,50 +64,45 @@
 
 ## Componentes Principais
 
+### `rust/src/structure.rs`
+
+- Trait `DataStructure`: interface comum para todas as estruturas
+- Métodos: `add()`, `contains()`, `suggest()`, `new_name()`, `name()`
+- Supertrait: `DeepSizeOf` (para medir memória)
+
 ### `rust/src/main.rs`
 
-- Função `main()`: Processa argumentos CLI
+- CLI com `clap::Parser`
 - Função `parse_operations()`: Lê arquivo `.txt`
-- Função `run_benchmark()`: Executa benchmark para uma estrutura
-  - Mede memória inicial
-  - Processa operações
-  - Registra evolução de memória
-  - Calcula tempo total
-  - Conta hits/misses
-
-### `rust/src/memory.rs`
-
-- `TrackingAllocator`: Implementa `GlobalAlloc`
-- Rastreia alocações/desalocações
-- `get_allocated_bytes()`: Retorna total alocado
-
-### `rust/src/hashset.rs`
-
-- `HashSetStructure`: Wrapper para `HashSet<String>`
-- `add()`: Insere elemento
-- `contains()`: Verifica existência
-- `suggest()`: Retorna próximo lexicograficamente
-
-### `rust/src/trie.rs`
-
-- `TrieNode`: Nó com `BTreeMap<char, Box<TrieNode>>`
-- `TrieStructure`: Trie completa
-- `add()`: Insere string
-- `contains()`: Verifica existência
-- `suggest()`: Retorna próxima palavra no trie
+- Função `run_benchmark<S: DataStructure>()`: Loop genérico
+  - Mede memória inicial via `deep_size_of()`
+  - Processa operações (SET, GET, SUG, NEW)
+  - Mantém Ground Truth HashSet (não medido)
+  - Registra evolução de memória e tempo a cada N ops
+  - Conta hits, misses, falsos positivos
+  - Calcula ops_per_second e false_positive_rate
 
 ### `rust/src/bloom_filter.rs`
 
-- `BloomFilter`: Usa `Vec<bool>` e hash duplo
-- `add()`: Marca bits
-- `contains()`: Verifica bits
-- `suggest()`: Retorna vazio (não suportado)
+- `BloomFilterStructure`: Wrapper para `fastbloom::BloomFilter`
+- Configurado para 10M elementos com 1% de falsos positivos
+- `DeepSizeOf` manual: mede `num_bits() / 8` (bitset)
+
+### `rust/src/trie.rs`
+
+- `TrieStructure`: Wrapper para `radix_trie::Trie<String, bool>`
+- `suggest()`: iter sobre chaves, filtra por prefixo
+- `DeepSizeOf` manual: soma chaves + overhead por nó
+
+### `rust/src/hashset.rs`
+
+- `HashSetStructure`: Wrapper para `std::collections::HashSet<String>`
+- `DeepSizeOf` via `#[derive(DeepSizeOf)]`
 
 ### `src/generate_test_data.py`
 
-- `generate_usernames()`: Cria nomes aleatórios
-- `generate_test_file()`: Cria arquivo com operações
-  - Configurável: total de ops, proporção leitura/escrita, seed
+- Gera operações SET, GET, SUG, NEW
+- Configurável: total de ops, proporção leitura/escrita, seed, prefixo
 
 ## Exemplo de Uso
 
@@ -115,6 +129,17 @@ uv run -m src.generate_test_data test_100k.txt 100000 0.5
   --verbose
 ```
 
+### Executar apenas Bloom Filter
+
+```bash
+./rust/target/release/benchmark \
+  data/tests/txt/test_100k.txt \
+  10000 \
+  test_bloom \
+  data/tests/json \
+  --bloom
+```
+
 ### Resultado
 
 ```json
@@ -122,13 +147,17 @@ uv run -m src.generate_test_data test_100k.txt 100000 0.5
   "test_id": "test_100k",
   "total_operations": 100000,
   "results": {
-    "hashset": {
-      "structure": "hashset",
+    "bloom_filter": {
+      "structure": "bloom_filter",
       "hits": 50000,
       "misses": 50000,
+      "false_positives": 120,
+      "false_positive_rate": 0.0024,
       "total_time_ms": 1234.56,
-      "final_memory_mb": 45.2,
-      "memory_evolution": [...]
+      "ops_per_second": 81000.0,
+      "final_memory_mb": 11.9,
+      "memory_evolution": [...],
+      "time_evolution": [...]
     },
     ...
   }
@@ -139,67 +168,23 @@ uv run -m src.generate_test_data test_100k.txt 100000 0.5
 
 ### Medição de Memória
 
-- **Método**: `GlobalAlloc` em Rust
-- **Precisão**: Byte-level
-- **Overhead**: Mínimo (apenas contadores atômicos)
-- **Não inclui**: Stack memory, overhead do SO
+- **Método**: `deepsize` crate (não GlobalAlloc)
+- **Precisão**: Mede apenas a estrutura testada
+- **Overhead**: Mínimo (apenas quando chamado)
+- **Ground Truth**: Não medido
 
 ### Medição de Tempo
 
 - **Método**: `std::time::Instant`
 - **Precisão**: Nanosegundos
 - **Conversão**: Para milissegundos no JSON
+- **GT**: Operações no GT ficam fora do timer
 
-### Estruturas Built-in
+### Crates Usadas
 
 - **HashSet**: `std::collections::HashSet<String>`
-- **Trie**: `std::collections::BTreeMap<char, Box<TrieNode>>`
-- **Bloom Filter**: `Vec<bool>` (simples e eficiente)
-
-## Performance
-
-### Compilação
-
-- Release mode: ~0.7s
-- Sem warnings (após limpeza)
-
-### Execução (100k operações)
-
-- HashSet: ~30ms
-- Trie: ~30ms
-- Bloom Filter: ~20ms
-
-### Memória (100k operações)
-
-- HashSet: ~0.5MB
-- Trie: ~0.5MB
-- Bloom Filter: ~10MB (tamanho fixo)
-
-## Notas de Implementação
-
-1. **Simplicidade**: Código simples e direto, sem abstrações desnecessárias
-2. **Built-in**: Todas as estruturas usam STL do Rust
-3. **Sem GC**: Rust não tem garbage collector, memória é determinística
-4. **Reprodutibilidade**: Seed fixo em gerador de dados
-5. **Flexibilidade**: Intervalo de medição configurável
-6. **Rastreabilidade**: Cada teste gera JSON com ID único
-
-## Verificação
-
-Todos os componentes foram testados:
-
-- Compilação sem erros
-- Execução com dados pequenos
-- Execução com dados grandes (100k+)
-- Saída JSON válida
-- Medição de memória funciona
-- Output verbose correto
-- Diferentes intervalos de medição
-
-## Próximas Melhorias (Opcional)
-
-- Suporte a múltiplos threads
-- Comparação automática de resultados
-- Gráficos de evolução de memória
-- Benchmark de operações específicas
-- Cache de resultados
+- **Trie**: `radix_trie::Trie<String, bool>` (trie compactada)
+- **Bloom Filter**: `fastbloom::BloomFilter` (bitset otimizado)
+- **CLI**: `clap` (derive)
+- **Memória**: `deepsize` (DeepSizeOf trait)
+- **Serialization**: `serde` / `serde_json`

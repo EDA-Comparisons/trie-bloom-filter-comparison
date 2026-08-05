@@ -1,47 +1,53 @@
-use std::collections::hash_map::DefaultHasher;
-use std::hash::{Hash, Hasher};
+use deepsize::{Context, DeepSizeOf};
+use fastbloom::BloomFilter;
 
-pub struct BloomFilter {
-    bits: Vec<bool>,
-    size: usize,
-    hash_functions: usize,
+use crate::structure::DataStructure;
+
+pub struct BloomFilterStructure {
+    filter: BloomFilter,
 }
 
-impl BloomFilter {
-    pub fn new(size: usize, hash_functions: usize) -> Self {
-        BloomFilter {
-            bits: vec![false; size],
-            size,
-            hash_functions,
-        }
+impl BloomFilterStructure {
+    pub fn new() -> Self {
+        let filter = BloomFilter::with_false_pos(0.01).expected_items(10_000_000);
+        BloomFilterStructure { filter }
+    }
+}
+
+impl DataStructure for BloomFilterStructure {
+    fn add(&mut self, key: &str) -> bool {
+        self.filter.insert(key)
     }
 
-    fn hash(&self, data: &str, seed: u64) -> usize {
-        let mut hasher = DefaultHasher::new();
-        data.hash(&mut hasher);
-        seed.hash(&mut hasher);
-        (hasher.finish() as usize) % self.size
+    fn contains(&self, key: &str) -> bool {
+        self.filter.contains(key)
     }
 
-    pub fn add(&mut self, username: &str) -> bool {
-        for i in 0..self.hash_functions {
-            let idx = self.hash(username, i as u64);
-            self.bits[idx] = true;
-        }
-        true
-    }
-
-    pub fn contains(&self, username: &str) -> bool {
-        for i in 0..self.hash_functions {
-            let idx = self.hash(username, i as u64);
-            if !self.bits[idx] {
-                return false;
-            }
-        }
-        true
-    }
-
-    pub fn suggest(&self, _username: &str) -> String {
+    fn suggest(&self, _prefix: &str) -> String {
         String::new()
+    }
+
+    fn new_name(&mut self, key: &str) -> String {
+        if !self.contains(key) {
+            return key.to_string();
+        }
+        let mut i = 1;
+        loop {
+            let candidate = format!("{}{}", key, i);
+            if !self.contains(&candidate) {
+                return candidate;
+            }
+            i += 1;
+        }
+    }
+
+    fn name(&self) -> &'static str {
+        "bloom_filter"
+    }
+}
+
+impl DeepSizeOf for BloomFilterStructure {
+    fn deep_size_of_children(&self, _context: &mut Context) -> usize {
+        self.filter.num_bits() / 8
     }
 }

@@ -1,18 +1,53 @@
-#[global_allocator]
-static GLOBAL: crate::memory::TrackingAllocator = crate::memory::TrackingAllocator;
-
-mod memory;
-mod hashset;
-mod trie;
 mod bloom_filter;
+mod hashset;
+mod structure;
+mod trie;
 
+use std::collections::HashSet;
 use std::fs;
 use std::io::{self, BufRead};
 use std::time::Instant;
+
+use clap::Parser;
 use serde_json::{json, Value};
+
+use bloom_filter::BloomFilterStructure;
 use hashset::HashSetStructure;
+use structure::DataStructure;
 use trie::TrieStructure;
-use bloom_filter::BloomFilter;
+
+#[derive(Parser, Debug)]
+#[command(name = "benchmark", about = "Benchmark de estruturas de dados")]
+struct Args {
+    /// Arquivo de operações
+    file_path: String,
+
+    /// Intervalo de medição (-1 = apenas final)
+    #[arg(allow_hyphen_values = true)]
+    measure_interval: i32,
+
+    /// ID do teste
+    test_id: String,
+
+    /// Diretório para salvar JSON
+    save_path: String,
+
+    /// Rodar Bloom Filter
+    #[arg(long)]
+    bloom: bool,
+
+    /// Rodar Trie
+    #[arg(long)]
+    trie: bool,
+
+    /// Rodar HashSet
+    #[arg(long)]
+    hashset: bool,
+
+    /// Imprime resultados na stdout
+    #[arg(long)]
+    verbose: bool,
+}
 
 #[derive(Debug)]
 struct Operation {
@@ -31,7 +66,6 @@ fn parse_operations(file_path: &str) -> io::Result<Vec<Operation>> {
         if trimmed.is_empty() {
             continue;
         }
-
         let parts: Vec<&str> = trimmed.split_whitespace().collect();
         if parts.len() >= 2 {
             operations.push(Operation {
@@ -40,215 +74,152 @@ fn parse_operations(file_path: &str) -> io::Result<Vec<Operation>> {
             });
         }
     }
-
     Ok(operations)
 }
 
-fn run_benchmark(
-    structure: &str,
+fn run_benchmark<S: DataStructure>(
+    mut structure: S,
     operations: &[Operation],
     measure_interval: i32,
     verbose: bool,
 ) -> Value {
-    let mut stats = json!({
-        "structure": structure,
-        "hits": 0,
-        "misses": 0,
-        "memory_evolution": [],
-        "total_time_ms": 0.0,
-        "final_memory_mb": 0.0,
-    });
+    let mut gt: HashSet<String> = HashSet::new();
+    let mut hits = 0;
+    let mut misses = 0;
+    let mut false_positives = 0;
 
-    let initial_mem = memory::get_allocated_bytes();
+    let mut memory_evolution: Vec<Value> = Vec::new();
+    let mut time_evolution: Vec<Value> = Vec::new();
 
+    let initial_mem = structure.deep_size_of();
     let start = Instant::now();
 
-    match structure {
-        "hashset" => {
-            let mut hs = HashSetStructure::new();
-            let mut hits = 0;
-            let mut misses = 0;
-
-            for (idx, op) in operations.iter().enumerate() {
-                match op.op_type.as_str() {
-                    "SET" => {
-                        hs.add(&op.data);
-                        if verbose {
-                            println!();
-                        }
-                    }
-                    "GET" => {
-                        if hs.contains(&op.data) {
-                            hits += 1;
-                        } else {
-                            misses += 1;
-                        }
-                        if verbose {
-                            println!("{}", if hs.contains(&op.data) { "true" } else { "false" });
-                        }
-                    }
-                    "SUG" => {
-                        let result = hs.suggest(&op.data);
-                        if verbose {
-                            println!("{}", result);
-                        }
-                    }
-                    _ => {}
+    for (idx, op) in operations.iter().enumerate() {
+        match op.op_type.as_str() {
+            "SET" => {
+                let t = Instant::now();
+                structure.add(&op.data);
+                let elapsed = t.elapsed();
+                gt.insert(op.data.clone());
+                if verbose {
+                    println!();
                 }
-
-                if measure_interval > 0 && (idx + 1) % measure_interval as usize == 0 {
-                    let current_mem = memory::get_allocated_bytes();
-                    let delta_mb = (current_mem as i64 - initial_mem as i64) as f64 / 1_048_576.0;
-                    stats["memory_evolution"]
-                        .as_array_mut()
-                        .unwrap()
-                        .push(json!({
-                            "operation": idx + 1,
-                            "delta_memory_mb": delta_mb,
-                        }));
-                }
+                // tempo medido apenas na estrutura, GT fora do timer
+                let _ = elapsed;
             }
+            "GET" => {
+                let t = Instant::now();
+                let result = structure.contains(&op.data);
+                let elapsed = t.elapsed();
+                let gt_result = gt.contains(&op.data);
 
-            stats["hits"] = json!(hits);
-            stats["misses"] = json!(misses);
-        }
-        "trie" => {
-            let mut trie = TrieStructure::new();
-            let mut hits = 0;
-            let mut misses = 0;
-
-            for (idx, op) in operations.iter().enumerate() {
-                match op.op_type.as_str() {
-                    "SET" => {
-                        trie.add(&op.data);
-                        if verbose {
-                            println!();
-                        }
+                if result {
+                    hits += 1;
+                    if !gt_result {
+                        false_positives += 1;
                     }
-                    "GET" => {
-                        if trie.contains(&op.data) {
-                            hits += 1;
-                        } else {
-                            misses += 1;
-                        }
-                        if verbose {
-                            println!("{}", if trie.contains(&op.data) { "true" } else { "false" });
-                        }
-                    }
-                    "SUG" => {
-                        let result = trie.suggest(&op.data);
-                        if verbose {
-                            println!("{}", result);
-                        }
-                    }
-                    _ => {}
+                } else {
+                    misses += 1;
                 }
 
-                if measure_interval > 0 && (idx + 1) % measure_interval as usize == 0 {
-                    let current_mem = memory::get_allocated_bytes();
-                    let delta_mb = (current_mem as i64 - initial_mem as i64) as f64 / 1_048_576.0;
-                    stats["memory_evolution"]
-                        .as_array_mut()
-                        .unwrap()
-                        .push(json!({
-                            "operation": idx + 1,
-                            "delta_memory_mb": delta_mb,
-                        }));
+                if verbose {
+                    println!("{}", result);
                 }
+                let _ = elapsed;
             }
-
-            stats["hits"] = json!(hits);
-            stats["misses"] = json!(misses);
-        }
-        "bloom_filter" => {
-            let mut bf = BloomFilter::new(10_000_000, 3);
-            let mut hits = 0;
-            let mut misses = 0;
-
-            for (idx, op) in operations.iter().enumerate() {
-                match op.op_type.as_str() {
-                    "SET" => {
-                        bf.add(&op.data);
-                        if verbose {
-                            println!();
-                        }
-                    }
-                    "GET" => {
-                        if bf.contains(&op.data) {
-                            hits += 1;
-                        } else {
-                            misses += 1;
-                        }
-                        if verbose {
-                            println!("{}", if bf.contains(&op.data) { "true" } else { "false" });
-                        }
-                    }
-                    "SUG" => {
-                        let result = bf.suggest(&op.data);
-                        if verbose {
-                            println!("{}", result);
-                        }
-                    }
-                    _ => {}
+            "SUG" => {
+                let t = Instant::now();
+                let result = structure.suggest(&op.data);
+                let elapsed = t.elapsed();
+                if verbose {
+                    println!("{}", result);
                 }
-
-                if measure_interval > 0 && (idx + 1) % measure_interval as usize == 0 {
-                    let current_mem = memory::get_allocated_bytes();
-                    let delta_mb = (current_mem as i64 - initial_mem as i64) as f64 / 1_048_576.0;
-                    stats["memory_evolution"]
-                        .as_array_mut()
-                        .unwrap()
-                        .push(json!({
-                            "operation": idx + 1,
-                            "delta_memory_mb": delta_mb,
-                        }));
-                }
+                let _ = elapsed;
             }
-
-            stats["hits"] = json!(hits);
-            stats["misses"] = json!(misses);
+            "NEW" => {
+                let t = Instant::now();
+                let result = structure.new_name(&op.data);
+                let elapsed = t.elapsed();
+                if verbose {
+                    println!("{}", result);
+                }
+                let _ = elapsed;
+            }
+            _ => {}
         }
-        _ => {}
+
+        if measure_interval > 0 && (idx + 1) % measure_interval as usize == 0 {
+            let current_mem = structure.deep_size_of();
+            let delta_mb = (current_mem as f64 - initial_mem as f64) / 1_048_576.0;
+            memory_evolution.push(json!({
+                "operation": idx + 1,
+                "delta_memory_mb": delta_mb,
+            }));
+
+            let elapsed_ms = start.elapsed().as_secs_f64() * 1000.0;
+            time_evolution.push(json!({
+                "operation": idx + 1,
+                "elapsed_ms": elapsed_ms,
+            }));
+        }
     }
 
-    let elapsed = start.elapsed();
-    let final_mem = memory::get_allocated_bytes();
-    let delta_mb = (final_mem as i64 - initial_mem as i64) as f64 / 1_048_576.0;
+    let total_time_ms = start.elapsed().as_secs_f64() * 1000.0;
+    let final_mem = structure.deep_size_of();
+    let delta_mb = (final_mem as f64 - initial_mem as f64) / 1_048_576.0;
+    let total_ops = operations.len();
+    let ops_per_second = if total_time_ms > 0.0 {
+        (total_ops as f64 / total_time_ms) * 1000.0
+    } else {
+        0.0
+    };
+    let false_positive_rate = if hits > 0 {
+        false_positives as f64 / hits as f64
+    } else {
+        0.0
+    };
 
-    stats["total_time_ms"] = json!(elapsed.as_secs_f64() * 1000.0);
-    stats["final_memory_mb"] = json!(delta_mb);
-
-    stats
+    json!({
+        "structure": structure.name(),
+        "hits": hits,
+        "misses": misses,
+        "false_positives": false_positives,
+        "false_positive_rate": false_positive_rate,
+        "total_time_ms": total_time_ms,
+        "ops_per_second": ops_per_second,
+        "final_memory_mb": delta_mb,
+        "memory_evolution": memory_evolution,
+        "time_evolution": time_evolution,
+    })
 }
 
 fn main() {
-    let args: Vec<String> = std::env::args().collect();
+    let args = Args::parse();
 
-    if args.len() < 5 {
-        eprintln!("Usage: {} <file_path> <measure_interval> <test_id> <save_path> [--verbose]", args[0]);
-        std::process::exit(1);
-    }
+    let operations = parse_operations(&args.file_path).expect("Failed to read operations file");
 
-    let file_path = &args[1];
-    let measure_interval: i32 = args[2].parse().expect("measure_interval must be an integer");
-    let test_id = &args[3];
-    let save_path = &args[4];
-    let verbose = args.contains(&"--verbose".to_string());
-
-    let operations = parse_operations(file_path).expect("Failed to read operations file");
+    let run_all = !args.bloom && !args.trie && !args.hashset;
 
     let mut results = json!({
-        "test_id": test_id,
+        "test_id": args.test_id,
         "total_operations": operations.len(),
-        "results": {}
+        "results": {},
     });
 
-    for structure in &["hashset", "trie", "bloom_filter"] {
-        let stats = run_benchmark(structure, &operations, measure_interval, verbose);
-        results["results"][*structure] = stats;
+    if args.bloom || run_all {
+        let stats = run_benchmark(BloomFilterStructure::new(), &operations, args.measure_interval, args.verbose);
+        results["results"]["bloom_filter"] = stats;
+    }
+    if args.trie || run_all {
+        let stats = run_benchmark(TrieStructure::new(), &operations, args.measure_interval, args.verbose);
+        results["results"]["trie"] = stats;
+    }
+    if args.hashset || run_all {
+        let stats = run_benchmark(HashSetStructure::new(), &operations, args.measure_interval, args.verbose);
+        results["results"]["hashset"] = stats;
     }
 
-    let output_file = format!("{}/{}.json", save_path, test_id);
+    let output_file = format!("{}/{}.json", args.save_path, args.test_id);
     fs::write(&output_file, serde_json::to_string_pretty(&results).unwrap())
         .expect("Failed to write results file");
 

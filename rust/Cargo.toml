@@ -6,6 +6,10 @@ edition = "2021"
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
+clap = { version = "4", features = ["derive"] }
+fastbloom = "0.7"
+radix_trie = "0.2"
+deepsize = "0.2"
 
 [[bin]]
 name = "benchmark"

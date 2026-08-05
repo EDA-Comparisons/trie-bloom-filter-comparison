@@ -1,83 +1,61 @@
-use std::collections::BTreeMap;
+use deepsize::{Context, DeepSizeOf};
+use radix_trie::{Trie, TrieCommon};
 
-pub struct TrieNode {
-    children: BTreeMap<char, Box<TrieNode>>,
-    is_end: bool,
-}
-
-impl TrieNode {
-    fn new() -> Self {
-        TrieNode {
-            children: BTreeMap::new(),
-            is_end: false,
-        }
-    }
-}
+use crate::structure::DataStructure;
 
 pub struct TrieStructure {
-    root: TrieNode,
+    trie: Trie<String, bool>,
 }
 
 impl TrieStructure {
     pub fn new() -> Self {
         TrieStructure {
-            root: TrieNode::new(),
+            trie: Trie::new(),
         }
     }
+}
 
-    pub fn add(&mut self, username: &str) -> bool {
-        let mut node = &mut self.root;
-        for ch in username.chars() {
-            node = node.children.entry(ch).or_insert_with(|| Box::new(TrieNode::new()));
-        }
-
-        let was_end = node.is_end;
-        node.is_end = true;
-        !was_end
+impl DataStructure for TrieStructure {
+    fn add(&mut self, key: &str) -> bool {
+        self.trie.insert(key.to_string(), true).is_none()
     }
 
-    pub fn contains(&self, username: &str) -> bool {
-        let mut node = &self.root;
-        for ch in username.chars() {
-            match node.children.get(&ch) {
-                Some(child) => node = child,
-                None => return false,
+    fn contains(&self, key: &str) -> bool {
+        self.trie.get(key).is_some()
+    }
+
+    fn suggest(&self, prefix: &str) -> String {
+        self.trie
+            .iter()
+            .map(|(k, _)| k)
+            .find(|k| k.starts_with(prefix))
+            .cloned()
+            .unwrap_or_default()
+    }
+
+    fn new_name(&mut self, key: &str) -> String {
+        if !self.contains(key) {
+            return key.to_string();
+        }
+        let mut i = 1;
+        loop {
+            let candidate = format!("{}{}", key, i);
+            if !self.contains(&candidate) {
+                return candidate;
             }
+            i += 1;
         }
-        node.is_end
     }
 
-    pub fn suggest(&self, username: &str) -> String {
-        let mut node = &self.root;
-        let mut prefix = String::new();
-
-        for ch in username.chars() {
-            match node.children.get(&ch) {
-                Some(child) => {
-                    prefix.push(ch);
-                    node = child;
-                }
-                None => return String::new(),
-            }
-        }
-
-        self.find_next_word(node, prefix)
+    fn name(&self) -> &'static str {
+        "trie"
     }
+}
 
-    fn find_next_word(&self, node: &TrieNode, mut prefix: String) -> String {
-        if node.is_end {
-            return prefix;
-        }
-
-        for (ch, child) in &node.children {
-            prefix.push(*ch);
-            let result = self.find_next_word(child, prefix.clone());
-            if !result.is_empty() {
-                return result;
-            }
-            prefix.pop();
-        }
-
-        String::new()
+impl DeepSizeOf for TrieStructure {
+    fn deep_size_of_children(&self, context: &mut Context) -> usize {
+        let key_size: usize = self.trie.keys().map(|k| k.deep_size_of_children(context)).sum();
+        let node_overhead = self.trie.len() * 64;
+        key_size + node_overhead
     }
 }
