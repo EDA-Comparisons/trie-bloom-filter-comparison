@@ -180,3 +180,11 @@ Objetivo: Medir impacto de agrupamento por prefixo. Trie pode se beneficiar por 
 
 Estruturas relevantes: bloom_filter, trie, hashset
 
+### Teste 17
+
+- 100% SET para TOTAL_OPS operações
+
+Objetivo: Medir impacto geral da adição nas estrturas. HashSet e Bloom filter devem ser rápidos e Trie mais lenta no final.
+
+Estruturas relevantes: bloom_filter, trie, hashset
+
