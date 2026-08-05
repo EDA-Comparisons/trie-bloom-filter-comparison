@@ -1,0 +1,42 @@
+{
+  "results": {
+    "bloom_filter": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.0,
+      "hits": 28246,
+      "memory_evolution": [],
+      "misses": 6918,
+      "ops_per_second": 2954885.8372469563,
+      "structure": "bloom_filter",
+      "time_evolution": [],
+      "total_time_ms": 33.842255
+    },
+    "hashset": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.3900012969970703,
+      "hits": 28246,
+      "memory_evolution": [],
+      "misses": 6918,
+      "ops_per_second": 14338.255197566286,
+      "structure": "hashset",
+      "time_evolution": [],
+      "total_time_ms": 6974.349292999999
+    },
+    "trie": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.6677722930908203,
+      "hits": 28246,
+      "memory_evolution": [],
+      "misses": 6918,
+      "ops_per_second": 48443.627972093724,
+      "structure": "trie",
+      "time_evolution": [],
+      "total_time_ms": 2064.254974
+    }
+  },
+  "test_id": "example_data_100k",
+  "total_operations": 100000
+}

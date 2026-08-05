@@ -234,7 +234,7 @@ def create_tests(TOTAL_OPS=1000000):
     ALL_TESTS = [
         TEST_01, TEST_02, TEST_03, TEST_04, TEST_05,
         TEST_06, TEST_07, TEST_08, TEST_09, TEST_10,
-        TEST_11, TEST_12, TEST_12, TEST_13, TEST_14,
+        TEST_11, TEST_12, TEST_13, TEST_14,
         TEST_15, TEST_16,
     ]
     return ALL_TESTS

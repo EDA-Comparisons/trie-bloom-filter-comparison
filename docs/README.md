@@ -45,9 +45,14 @@ Options:
 - `--verbose`: Imprime resultados na stdout
 - Se nenhuma flag de estrutura for passada, roda todas
 
-### 4. Analisar resultados
-
-TODO @(pagmaia): documentar as analises
+Também é possível executar os testes do experimento com todas as estruturas, para isso, no diretório do projeto:
+```bash
+chmod +x benchmark.sh
+```
+```bash
+./benchmark.sh <total_ops>
+```
+- `total_ops`: Número de operações a serem executadas
 
 ## Formato de Dados
 
@@ -131,7 +136,55 @@ Usa crate `deepsize` para medir memória de cada estrutura individualmente:
 
 ## Exemplos de Testes
 
-TODO @(pagmaia): documentar e adicionar exemplos de testes
+Exemplo de teste com 50% GET, 25% SET E 25% SUG, com 100 mil operações
+```json
+{
+  "results": {
+    "bloom_filter": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.0,
+      "hits": 28246,
+      "memory_evolution": [],
+      "misses": 6918,
+      "ops_per_second": 2954885.8372469563,
+      "structure": "bloom_filter",
+      "time_evolution": [],
+      "total_time_ms": 33.842255
+    },
+    "hashset": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.3900012969970703,
+      "hits": 28246,
+      "memory_evolution": [],
+      "misses": 6918,
+      "ops_per_second": 14338.255197566286,
+      "structure": "hashset",
+      "time_evolution": [],
+      "total_time_ms": 6974.349292999999
+    },
+    "trie": {
+      "false_positive_rate": 0.0,
+      "false_positives": 0,
+      "final_memory_mb": 0.6677722930908203,
+      "hits": 28246,
+      "memory_evolution": [],
+      "misses": 6918,
+      "ops_per_second": 48443.627972093724,
+      "structure": "trie",
+      "time_evolution": [],
+      "total_time_ms": 2064.254974
+    }
+  },
+  "test_id": "example_data_100k",
+  "total_operations": 100000
+}
+```
+
+Nesse teste, o Bloom Filter foi mais rápido, realizou mais operações por segundo e não gastou memória adicional.
+
+A Trie gastou mais memória que o HashSet, mas realizou mais operações por segundo em menos tempo.
 
 ## Estruturas Implementadas
 
@@ -171,6 +224,5 @@ Esperado para Bloom Filter (tamanho fixo). Para HashSet/Trie, verifique se está
 
 - [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter)
 - [Trie Data Structure](https://en.wikipedia.org/wiki/Trie)
-- [Rust GlobalAlloc](https://doc.rust-lang.org/std/alloc/trait.GlobalAlloc.html)
-  TODO @(pagmaia): Assumindo que vai usar pandas, caso não remover
+- [Rust Deepsize](https://docs.rs/deepsize/latest/deepsize/)
 - [Pandas Documentation](https://pandas.pydata.org/docs/)

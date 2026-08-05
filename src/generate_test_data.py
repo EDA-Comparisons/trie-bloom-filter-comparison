@@ -18,8 +18,6 @@ def generate_usernames(count, seed=0, prefix=""):
     return list(usernames)
 
 
-# TODO (@pagmaia): Alterar lógica de geração de arquivos de teste
-# TODO (@pagmaia): Adicionar checagem de resultado para cada teste através de "--verbose"
 def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""):
     """
     Gera arquivo de teste com operações aleatórias
