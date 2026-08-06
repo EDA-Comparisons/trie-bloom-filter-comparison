@@ -1,4 +1,4 @@
-PREFIX="benchmark"
+PREFIX="test_"
 
 clean_json(){
     TARGET_DIR="data/tests/json"
@@ -23,6 +23,7 @@ clean_json_runs(){
     TARGET_DIR="data/tests/json"
     if [ -d "$TARGET_DIR" ]; then
         find "$TARGET_DIR" -maxdepth 1 -type f -name "*_run_*.json*" -delete
+        echo "Os arquivos JSON criados pelas runs foram limpos"
     else
         return 1
     fi
