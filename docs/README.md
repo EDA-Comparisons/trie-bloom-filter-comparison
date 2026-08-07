@@ -2,6 +2,8 @@
 
 A ideia desse projeto é realizar um experimento bem elaborado que visa contrapor soluções possíveis para o seguinte [Cenario](./CENARY.md)
 
+[Relatório do Projeto](https://docs.google.com/document/d/1l5YSuWeGRwPgITegkPXg-EpVcRHrvgIv3kIWxxkCvbc/edit?usp=sharing).
+
 Sistema de benchmark para comparar **Bloom Filter**, **Trie** e **HashSet** em cenários de validação de usernames únicos com alta concorrência.
 
 ## Uso do projeto
