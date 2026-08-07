@@ -39,6 +39,15 @@
 - `SUG <prefix>`: Autocomplete - retorna nome existente com o prefixo
 - `NEW <username>`: Retorna nome disponível (tenta username, username1, username2, ...)
 
+#### Implementação por Estrutura
+
+| Operação | Bloom Filter                                                                           | Trie                                                                                          | HashSet                                                                                  |
+| -------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **SET**  | `filter.insert(key)` — insere no filtro com 1% taxa de falso positivo                  | `trie.insert(key, true)` — insere chave com valor booleano                                    | `set.insert(key)` — insere string no conjunto                                            |
+| **GET**  | `filter.contains(key)` — verifica presença (pode ter falsos positivos)                 | `trie.get(key).is_some()` — busca exata na árvore                                             | `set.contains(key)` — busca exata no hash                                                |
+| **SUG**  | Retorna string vazia — Bloom Filter não armazena chaves                                | `trie.iter().find(\|k\| k.starts_with(prefix))` — itera e encontra primeira chave com prefixo | `set.iter().sort().find(\|c\| c.starts_with(prefix))` — ordena e encontra primeira chave |
+| **NEW**  | Loop: testa `key`, `key1`, `key2`... até encontrar não presente em `filter.contains()` | Loop: testa `key`, `key1`, `key2`... até encontrar não presente em `trie.get()`               | Loop: testa `key`, `key1`, `key2`... até encontrar não presente em `set.contains()`      |
+
 ### 5. Ground Truth HashSet
 
 - HashSet paralelo como fonte da verdade para todas as estruturas
