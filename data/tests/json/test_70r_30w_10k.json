@@ -4,77 +4,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":665044.9766592489,
+            "misses":6002,
+            "ops_per_second":721639.6866034303,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.033595,
+                    "elapsed_ms":13.856988,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.036577
+            "total_time_ms":13.857331
         },
-        "test_id":"test_17_onlyset_10k_run_1",
+        "test_id":"test_11_70r_30w_10k_run_1",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4897471.435497853,
+            "misses":6002,
+            "ops_per_second":8296565.7195860352,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.041538,
+                    "elapsed_ms":1.2051,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.04187
+            "total_time_ms":1.205318
         },
-        "test_id":"test_17_onlyset_10k_run_1",
+        "test_id":"test_11_70r_30w_10k_run_1",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1037539.4213103125,
+            "misses":6002,
+            "ops_per_second":2813890.9414660032,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.633346,
+                    "elapsed_ms":3.553497,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.638188
+            "total_time_ms":3.553798
         },
-        "test_id":"test_17_onlyset_10k_run_1",
+        "test_id":"test_11_70r_30w_10k_run_1",
         "total_operations":10000
     },
     {
@@ -82,77 +82,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":634001.7952394834,
+            "misses":6002,
+            "ops_per_second":692842.9667951544,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.770094,
+                    "elapsed_ms":14.4329,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.772826
+            "total_time_ms":14.433285
         },
-        "test_id":"test_17_onlyset_10k_run_2",
+        "test_id":"test_11_70r_30w_10k_run_2",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4224967.7001219327,
+            "misses":6002,
+            "ops_per_second":8520028.4568950459,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.36657,
+                    "elapsed_ms":1.173539,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.366882
+            "total_time_ms":1.173705
         },
-        "test_id":"test_17_onlyset_10k_run_2",
+        "test_id":"test_11_70r_30w_10k_run_2",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":998518.8969201981,
+            "misses":6002,
+            "ops_per_second":2820963.5960289859,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":10.010075,
+                    "elapsed_ms":3.544608,
                     "operation":10000
                 }
             ],
-            "total_time_ms":10.014833
+            "total_time_ms":3.544888
         },
-        "test_id":"test_17_onlyset_10k_run_2",
+        "test_id":"test_11_70r_30w_10k_run_2",
         "total_operations":10000
     },
     {
@@ -160,77 +160,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":669738.6686412347,
+            "misses":6002,
+            "ops_per_second":696889.6560250223,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":14.928402,
+                    "elapsed_ms":14.34911,
                     "operation":10000
                 }
             ],
-            "total_time_ms":14.931197
+            "total_time_ms":14.349474
         },
-        "test_id":"test_17_onlyset_10k_run_3",
+        "test_id":"test_11_70r_30w_10k_run_3",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":5006473.3700674977,
+            "misses":6002,
+            "ops_per_second":8290066.0966969896,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":1.997217,
+                    "elapsed_ms":1.206055,
                     "operation":10000
                 }
             ],
-            "total_time_ms":1.997414
+            "total_time_ms":1.206263
         },
-        "test_id":"test_17_onlyset_10k_run_3",
+        "test_id":"test_11_70r_30w_10k_run_3",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1154381.2983765129,
+            "misses":6002,
+            "ops_per_second":2629185.6964936391,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.658597,
+                    "elapsed_ms":3.803137,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.662649
+            "total_time_ms":3.803459
         },
-        "test_id":"test_17_onlyset_10k_run_3",
+        "test_id":"test_11_70r_30w_10k_run_3",
         "total_operations":10000
     },
     {
@@ -238,77 +238,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":669754.0093986581,
+            "misses":6002,
+            "ops_per_second":724806.5400743724,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":14.928113,
+                    "elapsed_ms":13.796421,
                     "operation":10000
                 }
             ],
-            "total_time_ms":14.930855
+            "total_time_ms":13.796785
         },
-        "test_id":"test_17_onlyset_10k_run_4",
+        "test_id":"test_11_70r_30w_10k_run_4",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4975465.9772661012,
+            "misses":6002,
+            "ops_per_second":8385139.5203364771,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.009675,
+                    "elapsed_ms":1.192388,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.009862
+            "total_time_ms":1.192586
         },
-        "test_id":"test_17_onlyset_10k_run_4",
+        "test_id":"test_11_70r_30w_10k_run_4",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1170161.2166212976,
+            "misses":6002,
+            "ops_per_second":2735081.6339815296,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.541935,
+                    "elapsed_ms":3.655886,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.545831
+            "total_time_ms":3.656198
         },
-        "test_id":"test_17_onlyset_10k_run_4",
+        "test_id":"test_11_70r_30w_10k_run_4",
         "total_operations":10000
     },
     {
@@ -316,77 +316,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":670278.7541877342,
+            "misses":6002,
+            "ops_per_second":612121.1995078056,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":14.916133,
+                    "elapsed_ms":16.336291,
                     "operation":10000
                 }
             ],
-            "total_time_ms":14.919166
+            "total_time_ms":16.336634
         },
-        "test_id":"test_17_onlyset_10k_run_5",
+        "test_id":"test_11_70r_30w_10k_run_5",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4983117.1989300251,
+            "misses":6002,
+            "ops_per_second":8167158.874108145,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.006443,
+                    "elapsed_ms":1.224219,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.006776
+            "total_time_ms":1.224416
         },
-        "test_id":"test_17_onlyset_10k_run_5",
+        "test_id":"test_11_70r_30w_10k_run_5",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1073926.293861029,
+            "misses":6002,
+            "ops_per_second":2741622.6293531829,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.305538,
+                    "elapsed_ms":3.647153,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.311626
+            "total_time_ms":3.647475
         },
-        "test_id":"test_17_onlyset_10k_run_5",
+        "test_id":"test_11_70r_30w_10k_run_5",
         "total_operations":10000
     },
     {
@@ -394,77 +394,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":621440.7756376325,
+            "misses":6002,
+            "ops_per_second":717390.940973719,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":16.088739,
+                    "elapsed_ms":13.939059,
                     "operation":10000
                 }
             ],
-            "total_time_ms":16.091638
+            "total_time_ms":13.939401
         },
-        "test_id":"test_17_onlyset_10k_run_6",
+        "test_id":"test_11_70r_30w_10k_run_6",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":5038207.2446397254,
+            "misses":6002,
+            "ops_per_second":6967597.1892712936,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":1.984646,
+                    "elapsed_ms":1.434976,
                     "operation":10000
                 }
             ],
-            "total_time_ms":1.984833
+            "total_time_ms":1.435215
         },
-        "test_id":"test_17_onlyset_10k_run_6",
+        "test_id":"test_11_70r_30w_10k_run_6",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1161091.5886461495,
+            "misses":6002,
+            "ops_per_second":2700677.9241725258,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.608668,
+                    "elapsed_ms":3.702483,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.612585
+            "total_time_ms":3.702774
         },
-        "test_id":"test_17_onlyset_10k_run_6",
+        "test_id":"test_11_70r_30w_10k_run_6",
         "total_operations":10000
     },
     {
@@ -472,77 +472,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":667951.1367025457,
+            "misses":6002,
+            "ops_per_second":722497.4134592598,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":14.968329,
+                    "elapsed_ms":13.840485,
                     "operation":10000
                 }
             ],
-            "total_time_ms":14.971155
+            "total_time_ms":13.84088
         },
-        "test_id":"test_17_onlyset_10k_run_7",
+        "test_id":"test_11_70r_30w_10k_run_7",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":5042508.3453513114,
+            "misses":6002,
+            "ops_per_second":8331528.1688967384,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":1.982932,
+                    "elapsed_ms":1.200063,
                     "operation":10000
                 }
             ],
-            "total_time_ms":1.98314
+            "total_time_ms":1.20026
         },
-        "test_id":"test_17_onlyset_10k_run_7",
+        "test_id":"test_11_70r_30w_10k_run_7",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1147776.5788613758,
+            "misses":6002,
+            "ops_per_second":2876102.9495298578,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.712102,
+                    "elapsed_ms":3.476688,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.712497
+            "total_time_ms":3.476927
         },
-        "test_id":"test_17_onlyset_10k_run_7",
+        "test_id":"test_11_70r_30w_10k_run_7",
         "total_operations":10000
     },
     {
@@ -550,77 +550,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":617257.5457111619,
+            "misses":6002,
+            "ops_per_second":710530.8631869981,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":16.197721,
+                    "elapsed_ms":14.073642,
                     "operation":10000
                 }
             ],
-            "total_time_ms":16.200693
+            "total_time_ms":14.073984
         },
-        "test_id":"test_17_onlyset_10k_run_8",
+        "test_id":"test_11_70r_30w_10k_run_8",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4532319.0607584566,
+            "misses":6002,
+            "ops_per_second":8397722.8734656312,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.206158,
+                    "elapsed_ms":1.190623,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.206376
+            "total_time_ms":1.190799
         },
-        "test_id":"test_17_onlyset_10k_run_8",
+        "test_id":"test_11_70r_30w_10k_run_8",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1064736.8524163989,
+            "misses":6002,
+            "ops_per_second":2808555.6468960261,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.386881,
+                    "elapsed_ms":3.56032,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.391992
+            "total_time_ms":3.560549
         },
-        "test_id":"test_17_onlyset_10k_run_8",
+        "test_id":"test_11_70r_30w_10k_run_8",
         "total_operations":10000
     },
     {
@@ -628,77 +628,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":668402.9547421017,
+            "misses":6002,
+            "ops_per_second":722086.1531098482,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":14.958136,
+                    "elapsed_ms":13.84842,
                     "operation":10000
                 }
             ],
-            "total_time_ms":14.961035
+            "total_time_ms":13.848763
         },
-        "test_id":"test_17_onlyset_10k_run_9",
+        "test_id":"test_11_70r_30w_10k_run_9",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":5016074.0091623608,
+            "misses":6002,
+            "ops_per_second":8293139.2517598029,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":1.993373,
+                    "elapsed_ms":1.205608,
                     "operation":10000
                 }
             ],
-            "total_time_ms":1.993591
+            "total_time_ms":1.205816
         },
-        "test_id":"test_17_onlyset_10k_run_9",
+        "test_id":"test_11_70r_30w_10k_run_9",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1174010.5527112542,
+            "misses":6002,
+            "ops_per_second":2854760.3557145596,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.5175,
+                    "elapsed_ms":3.502599,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.517811
+            "total_time_ms":3.502921
         },
-        "test_id":"test_17_onlyset_10k_run_9",
+        "test_id":"test_11_70r_30w_10k_run_9",
         "total_operations":10000
     },
     {
@@ -706,77 +706,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":638948.117604535,
+            "misses":6002,
+            "ops_per_second":725742.9666616179,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.647939,
+                    "elapsed_ms":13.778578,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.650723
+            "total_time_ms":13.778983
         },
-        "test_id":"test_17_onlyset_10k_run_10",
+        "test_id":"test_11_70r_30w_10k_run_10",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4788797.2791969385,
+            "misses":6002,
+            "ops_per_second":7942426.9356290121,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.087989,
+                    "elapsed_ms":1.258874,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.088207
+            "total_time_ms":1.259061
         },
-        "test_id":"test_17_onlyset_10k_run_10",
+        "test_id":"test_11_70r_30w_10k_run_10",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1143270.9416082369,
+            "misses":6002,
+            "ops_per_second":2796646.5969984708,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.746522,
+                    "elapsed_ms":3.575368,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.746833
+            "total_time_ms":3.575711
         },
-        "test_id":"test_17_onlyset_10k_run_10",
+        "test_id":"test_11_70r_30w_10k_run_10",
         "total_operations":10000
     },
     {
@@ -784,77 +784,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":659631.3030409531,
+            "misses":6002,
+            "ops_per_second":687302.4177374609,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.157179,
+                    "elapsed_ms":14.549272,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.159984
+            "total_time_ms":14.549636
         },
-        "test_id":"test_17_onlyset_10k_run_11",
+        "test_id":"test_11_70r_30w_10k_run_11",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4733293.1318970006,
+            "misses":6002,
+            "ops_per_second":7761317.7475724546,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.112497,
+                    "elapsed_ms":1.288234,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.112694
+            "total_time_ms":1.288441
         },
-        "test_id":"test_17_onlyset_10k_run_11",
+        "test_id":"test_11_70r_30w_10k_run_11",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1082647.7015659958,
+            "misses":6002,
+            "ops_per_second":2815536.4680953268,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.232408,
+                    "elapsed_ms":3.55142,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.236615
+            "total_time_ms":3.551721
         },
-        "test_id":"test_17_onlyset_10k_run_11",
+        "test_id":"test_11_70r_30w_10k_run_11",
         "total_operations":10000
     },
     {
@@ -862,77 +862,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":666306.3726007891,
+            "misses":6002,
+            "ops_per_second":723810.5964278934,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.0054,
+                    "elapsed_ms":13.815436,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.008111
+            "total_time_ms":13.815769
         },
-        "test_id":"test_17_onlyset_10k_run_12",
+        "test_id":"test_11_70r_30w_10k_run_12",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":5005145.2893574592,
+            "misses":6002,
+            "ops_per_second":8560016.8461131528,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":1.997747,
+                    "elapsed_ms":1.168025,
                     "operation":10000
                 }
             ],
-            "total_time_ms":1.997944
+            "total_time_ms":1.168222
         },
-        "test_id":"test_17_onlyset_10k_run_12",
+        "test_id":"test_11_70r_30w_10k_run_12",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1171232.011925953,
+            "misses":6002,
+            "ops_per_second":2813726.257074411,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.537748,
+                    "elapsed_ms":3.553705,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.538018
+            "total_time_ms":3.554006
         },
-        "test_id":"test_17_onlyset_10k_run_12",
+        "test_id":"test_11_70r_30w_10k_run_12",
         "total_operations":10000
     },
     {
@@ -940,77 +940,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":632586.2510794293,
+            "misses":6002,
+            "ops_per_second":719172.9051320322,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.805285,
+                    "elapsed_ms":13.90454,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.808121
+            "total_time_ms":13.904862
         },
-        "test_id":"test_17_onlyset_10k_run_13",
+        "test_id":"test_11_70r_30w_10k_run_13",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4764806.7561147967,
+            "misses":6002,
+            "ops_per_second":8480404.7527580392,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.098534,
+                    "elapsed_ms":1.179002,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.098721
+            "total_time_ms":1.179189
         },
-        "test_id":"test_17_onlyset_10k_run_13",
+        "test_id":"test_11_70r_30w_10k_run_13",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1136369.5764773318,
+            "misses":6002,
+            "ops_per_second":2826735.2621090272,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.799663,
+                    "elapsed_ms":3.537348,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.799954
+            "total_time_ms":3.53765
         },
-        "test_id":"test_17_onlyset_10k_run_13",
+        "test_id":"test_11_70r_30w_10k_run_13",
         "total_operations":10000
     },
     {
@@ -1018,77 +1018,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":670427.1371742194,
+            "misses":6002,
+            "ops_per_second":697756.6565287277,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":14.911022,
+                    "elapsed_ms":14.331312,
                     "operation":10000
                 }
             ],
-            "total_time_ms":14.915864
+            "total_time_ms":14.331644
         },
-        "test_id":"test_17_onlyset_10k_run_14",
+        "test_id":"test_11_70r_30w_10k_run_14",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4972462.5026602671,
+            "misses":6002,
+            "ops_per_second":8299857.2424554294,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.010837,
+                    "elapsed_ms":1.204622,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.011076
+            "total_time_ms":1.20484
         },
-        "test_id":"test_17_onlyset_10k_run_14",
+        "test_id":"test_11_70r_30w_10k_run_14",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1177501.9414063259,
+            "misses":6002,
+            "ops_per_second":2823387.245912794,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.488222,
+                    "elapsed_ms":3.541606,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.492555
+            "total_time_ms":3.541845
         },
-        "test_id":"test_17_onlyset_10k_run_14",
+        "test_id":"test_11_70r_30w_10k_run_14",
         "total_operations":10000
     },
     {
@@ -1096,77 +1096,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":631340.6727528328,
+            "misses":6002,
+            "ops_per_second":729323.6383855866,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.836441,
+                    "elapsed_ms":13.711012,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.839309
+            "total_time_ms":13.711334
         },
-        "test_id":"test_17_onlyset_10k_run_15",
+        "test_id":"test_11_70r_30w_10k_run_15",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4781490.6584017007,
+            "misses":6002,
+            "ops_per_second":8409523.6173061281,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.0912,
+                    "elapsed_ms":1.188931,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.091398
+            "total_time_ms":1.189128
         },
-        "test_id":"test_17_onlyset_10k_run_15",
+        "test_id":"test_11_70r_30w_10k_run_15",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1136739.9231131852,
+            "misses":6002,
+            "ops_per_second":2781001.4219260272,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.792952,
+                    "elapsed_ms":3.595536,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.797087
+            "total_time_ms":3.595827
         },
-        "test_id":"test_17_onlyset_10k_run_15",
+        "test_id":"test_11_70r_30w_10k_run_15",
         "total_operations":10000
     },
     {
@@ -1174,77 +1174,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":655958.2359262685,
+            "misses":6002,
+            "ops_per_second":712715.5002222247,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.240135,
+                    "elapsed_ms":14.030481,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.244873
+            "total_time_ms":14.030844
         },
-        "test_id":"test_17_onlyset_10k_run_16",
+        "test_id":"test_11_70r_30w_10k_run_16",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4990146.9548376724,
+            "misses":6002,
+            "ops_per_second":7945304.5236591296,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.003284,
+                    "elapsed_ms":1.258397,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.003949
+            "total_time_ms":1.258605
         },
-        "test_id":"test_17_onlyset_10k_run_16",
+        "test_id":"test_11_70r_30w_10k_run_16",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1080725.3179899158,
+            "misses":6002,
+            "ops_per_second":2863572.8053363254,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.248131,
+                    "elapsed_ms":3.491809,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.253045
+            "total_time_ms":3.492141
         },
-        "test_id":"test_17_onlyset_10k_run_16",
+        "test_id":"test_11_70r_30w_10k_run_16",
         "total_operations":10000
     },
     {
@@ -1252,77 +1252,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":614824.0849957408,
+            "misses":6002,
+            "ops_per_second":717124.7085605185,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":16.261968,
+                    "elapsed_ms":13.944181,
                     "operation":10000
                 }
             ],
-            "total_time_ms":16.264815
+            "total_time_ms":13.944576
         },
-        "test_id":"test_17_onlyset_10k_run_17",
+        "test_id":"test_11_70r_30w_10k_run_17",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4913519.5983099462,
+            "misses":6002,
+            "ops_per_second":8541642.6432967316,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.034983,
+                    "elapsed_ms":1.170517,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.035201
+            "total_time_ms":1.170735
         },
-        "test_id":"test_17_onlyset_10k_run_17",
+        "test_id":"test_11_70r_30w_10k_run_17",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1086964.2013775096,
+            "misses":6002,
+            "ops_per_second":2811113.6817184007,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.195509,
+                    "elapsed_ms":3.556966,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.199935
+            "total_time_ms":3.557309
         },
-        "test_id":"test_17_onlyset_10k_run_17",
+        "test_id":"test_11_70r_30w_10k_run_17",
         "total_operations":10000
     },
     {
@@ -1330,77 +1330,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":654721.1483704187,
+            "misses":6002,
+            "ops_per_second":704007.0603460068,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.270738,
+                    "elapsed_ms":14.20405,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.273678
+            "total_time_ms":14.204403
         },
-        "test_id":"test_17_onlyset_10k_run_18",
+        "test_id":"test_11_70r_30w_10k_run_18",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4260092.2650782773,
+            "misses":6002,
+            "ops_per_second":8190081.9745304827,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.345466,
+                    "elapsed_ms":1.220781,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.347367
+            "total_time_ms":1.220989
         },
-        "test_id":"test_17_onlyset_10k_run_18",
+        "test_id":"test_11_70r_30w_10k_run_18",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1142315.6199780952,
+            "misses":6002,
+            "ops_per_second":2783284.0413729609,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.74994,
+                    "elapsed_ms":3.592587,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.754148
+            "total_time_ms":3.592878
         },
-        "test_id":"test_17_onlyset_10k_run_18",
+        "test_id":"test_11_70r_30w_10k_run_18",
         "total_operations":10000
     },
     {
@@ -1408,77 +1408,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":668886.9700751341,
+            "misses":6002,
+            "ops_per_second":703381.44298281,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":14.947394,
+                    "elapsed_ms":14.216694,
                     "operation":10000
                 }
             ],
-            "total_time_ms":14.950209
+            "total_time_ms":14.217037
         },
-        "test_id":"test_17_onlyset_10k_run_19",
+        "test_id":"test_11_70r_30w_10k_run_19",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4940606.4989726003,
+            "misses":6002,
+            "ops_per_second":8456280.606450621,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.023845,
+                    "elapsed_ms":1.182366,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.024043
+            "total_time_ms":1.182553
         },
-        "test_id":"test_17_onlyset_10k_run_19",
+        "test_id":"test_11_70r_30w_10k_run_19",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1125589.316356445,
+            "misses":6002,
+            "ops_per_second":2850855.4989724094,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.879477,
+                    "elapsed_ms":3.507428,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.884235
+            "total_time_ms":3.507719
         },
-        "test_id":"test_17_onlyset_10k_run_19",
+        "test_id":"test_11_70r_30w_10k_run_19",
         "total_operations":10000
     },
     {
@@ -1486,77 +1486,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":611889.0906967098,
+            "misses":6002,
+            "ops_per_second":729104.9813473072,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":16.340015,
+                    "elapsed_ms":13.715124,
                     "operation":10000
                 }
             ],
-            "total_time_ms":16.342831
+            "total_time_ms":13.715446
         },
-        "test_id":"test_17_onlyset_10k_run_20",
+        "test_id":"test_11_70r_30w_10k_run_20",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4788320.3290533721,
+            "misses":6002,
+            "ops_per_second":8176588.1387141822,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.088217,
+                    "elapsed_ms":1.222796,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.088415
+            "total_time_ms":1.223004
         },
-        "test_id":"test_17_onlyset_10k_run_20",
+        "test_id":"test_11_70r_30w_10k_run_20",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1197759.4233123751,
+            "misses":6002,
+            "ops_per_second":2733738.7650171104,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.345005,
+                    "elapsed_ms":3.657599,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.348922
+            "total_time_ms":3.657994
         },
-        "test_id":"test_17_onlyset_10k_run_20",
+        "test_id":"test_11_70r_30w_10k_run_20",
         "total_operations":10000
     },
     {
@@ -1564,77 +1564,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":653790.1391186962,
+            "misses":6002,
+            "ops_per_second":706428.6134106148,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.292716,
+                    "elapsed_ms":14.155338,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.295428
+            "total_time_ms":14.155712
         },
-        "test_id":"test_17_onlyset_10k_run_21",
+        "test_id":"test_11_70r_30w_10k_run_21",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4994471.1204696409,
+            "misses":6002,
+            "ops_per_second":8131985.3754375018,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.001975,
+                    "elapsed_ms":1.229505,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.002214
+            "total_time_ms":1.229712
         },
-        "test_id":"test_17_onlyset_10k_run_21",
+        "test_id":"test_11_70r_30w_10k_run_21",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1099860.7576280842,
+            "misses":6002,
+            "ops_per_second":2741070.2783008656,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.087696,
+                    "elapsed_ms":3.647909,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.09206
+            "total_time_ms":3.64821
         },
-        "test_id":"test_17_onlyset_10k_run_21",
+        "test_id":"test_11_70r_30w_10k_run_21",
         "total_operations":10000
     },
     {
@@ -1642,77 +1642,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":662282.489045682,
+            "misses":6002,
+            "ops_per_second":610714.3232295942,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.096408,
+                    "elapsed_ms":16.373905,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.099297
+            "total_time_ms":16.374268
         },
-        "test_id":"test_17_onlyset_10k_run_22",
+        "test_id":"test_11_70r_30w_10k_run_22",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":5013302.7989770854,
+            "misses":6002,
+            "ops_per_second":7936205.6048658481,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":1.994495,
+                    "elapsed_ms":1.259809,
                     "operation":10000
                 }
             ],
-            "total_time_ms":1.994693
+            "total_time_ms":1.260048
         },
-        "test_id":"test_17_onlyset_10k_run_22",
+        "test_id":"test_11_70r_30w_10k_run_22",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1159021.72076246,
+            "misses":6002,
+            "ops_per_second":2642642.5791557338,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.627529,
+                    "elapsed_ms":3.783789,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.627966
+            "total_time_ms":3.784091
         },
-        "test_id":"test_17_onlyset_10k_run_22",
+        "test_id":"test_11_70r_30w_10k_run_22",
         "total_operations":10000
     },
     {
@@ -1720,77 +1720,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":651654.2895795266,
+            "misses":6002,
+            "ops_per_second":582292.8923932052,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.342683,
+                    "elapsed_ms":17.173125,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.34556
+            "total_time_ms":17.173488
         },
-        "test_id":"test_17_onlyset_10k_run_23",
+        "test_id":"test_11_70r_30w_10k_run_23",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":5010509.5437680539,
+            "misses":6002,
+            "ops_per_second":8488474.3495282102,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":1.995597,
+                    "elapsed_ms":1.177881,
                     "operation":10000
                 }
             ],
-            "total_time_ms":1.995805
+            "total_time_ms":1.178068
         },
-        "test_id":"test_17_onlyset_10k_run_23",
+        "test_id":"test_11_70r_30w_10k_run_23",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1111584.3990463496,
+            "misses":6002,
+            "ops_per_second":2763005.6749373558,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.995783,
+                    "elapsed_ms":3.618904,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.996168
+            "total_time_ms":3.619247
         },
-        "test_id":"test_17_onlyset_10k_run_23",
+        "test_id":"test_11_70r_30w_10k_run_23",
         "total_operations":10000
     },
     {
@@ -1798,77 +1798,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":657839.3831203282,
+            "misses":6002,
+            "ops_per_second":675188.8553867682,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.198536,
+                    "elapsed_ms":14.810307,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.201279
+            "total_time_ms":14.810671
         },
-        "test_id":"test_17_onlyset_10k_run_24",
+        "test_id":"test_11_70r_30w_10k_run_24",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4410999.2677741218,
+            "misses":6002,
+            "ops_per_second":8123542.8395031644,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.2668,
+                    "elapsed_ms":1.230793,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.26706
+            "total_time_ms":1.23099
         },
-        "test_id":"test_17_onlyset_10k_run_24",
+        "test_id":"test_11_70r_30w_10k_run_24",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1203874.7430931299,
+            "misses":6002,
+            "ops_per_second":2611523.1369198076,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.302554,
+                    "elapsed_ms":3.828871,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.306512
+            "total_time_ms":3.829183
         },
-        "test_id":"test_17_onlyset_10k_run_24",
+        "test_id":"test_11_70r_30w_10k_run_24",
         "total_operations":10000
     },
     {
@@ -1876,77 +1876,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":618219.713926246,
+            "misses":6002,
+            "ops_per_second":690547.9795153086,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":16.172695,
+                    "elapsed_ms":14.4809,
                     "operation":10000
                 }
             ],
-            "total_time_ms":16.175479
+            "total_time_ms":14.481253
         },
-        "test_id":"test_17_onlyset_10k_run_25",
+        "test_id":"test_11_70r_30w_10k_run_25",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4993201.7558094645,
+            "misses":6002,
+            "ops_per_second":7500513.7851942852,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.002526,
+                    "elapsed_ms":1.333035,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.002723
+            "total_time_ms":1.333242
         },
-        "test_id":"test_17_onlyset_10k_run_25",
+        "test_id":"test_11_70r_30w_10k_run_25",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1129967.3789717364,
+            "misses":6002,
+            "ops_per_second":2801650.9568758677,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.844379,
+                    "elapsed_ms":3.569065,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.849813
+            "total_time_ms":3.569324
         },
-        "test_id":"test_17_onlyset_10k_run_25",
+        "test_id":"test_11_70r_30w_10k_run_25",
         "total_operations":10000
     },
     {
@@ -1954,77 +1954,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":654878.6758667516,
+            "misses":6002,
+            "ops_per_second":731004.0377008023,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.266794,
+                    "elapsed_ms":13.679462,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.270004
+            "total_time_ms":13.679815
         },
-        "test_id":"test_17_onlyset_10k_run_26",
+        "test_id":"test_11_70r_30w_10k_run_26",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4529176.2741818391,
+            "misses":6002,
+            "ops_per_second":7565750.151693292,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.207689,
+                    "elapsed_ms":1.321507,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.207907
+            "total_time_ms":1.321746
         },
-        "test_id":"test_17_onlyset_10k_run_26",
+        "test_id":"test_11_70r_30w_10k_run_26",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1143046.8233128516,
+            "misses":6002,
+            "ops_per_second":2867999.4642576999,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.748163,
+                    "elapsed_ms":3.486481,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.748548
+            "total_time_ms":3.486751
         },
-        "test_id":"test_17_onlyset_10k_run_26",
+        "test_id":"test_11_70r_30w_10k_run_26",
         "total_operations":10000
     },
     {
@@ -2032,77 +2032,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":632335.6867813702,
+            "misses":6002,
+            "ops_per_second":671779.4005430262,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.81105,
+                    "elapsed_ms":14.885445,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.814385
+            "total_time_ms":14.885839
         },
-        "test_id":"test_17_onlyset_10k_run_27",
+        "test_id":"test_11_70r_30w_10k_run_27",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4454797.3935871404,
+            "misses":6002,
+            "ops_per_second":7972873.0965762092,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.244553,
+                    "elapsed_ms":1.254077,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.244771
+            "total_time_ms":1.254253
         },
-        "test_id":"test_17_onlyset_10k_run_27",
+        "test_id":"test_11_70r_30w_10k_run_27",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1174873.3134106148,
+            "misses":6002,
+            "ops_per_second":2725915.716866767,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":8.511244,
+                    "elapsed_ms":3.668212,
                     "operation":10000
                 }
             ],
-            "total_time_ms":8.511556
+            "total_time_ms":3.668492
         },
-        "test_id":"test_17_onlyset_10k_run_27",
+        "test_id":"test_11_70r_30w_10k_run_27",
         "total_operations":10000
     },
     {
@@ -2110,77 +2110,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":637030.4798699642,
+            "misses":6002,
+            "ops_per_second":682932.9456823819,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.694999,
+                    "elapsed_ms":14.642362,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.697836
+            "total_time_ms":14.642726
         },
-        "test_id":"test_17_onlyset_10k_run_28",
+        "test_id":"test_11_70r_30w_10k_run_28",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4942181.4195724223,
+            "misses":6002,
+            "ops_per_second":8490953.7378876545,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.02319,
+                    "elapsed_ms":1.177537,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.023398
+            "total_time_ms":1.177724
         },
-        "test_id":"test_17_onlyset_10k_run_28",
+        "test_id":"test_11_70r_30w_10k_run_28",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1106067.5659069715,
+            "misses":6002,
+            "ops_per_second":2811655.8881838191,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.036177,
+                    "elapsed_ms":3.556363,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.041039
+            "total_time_ms":3.556623
         },
-        "test_id":"test_17_onlyset_10k_run_28",
+        "test_id":"test_11_70r_30w_10k_run_28",
         "total_operations":10000
     },
     {
@@ -2188,77 +2188,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":647761.9081148438,
+            "misses":6002,
+            "ops_per_second":718925.9189257176,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":15.434779,
+                    "elapsed_ms":13.909307,
                     "operation":10000
                 }
             ],
-            "total_time_ms":15.437771
+            "total_time_ms":13.909639
         },
-        "test_id":"test_17_onlyset_10k_run_29",
+        "test_id":"test_11_70r_30w_10k_run_29",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4885909.1357706189,
+            "misses":6002,
+            "ops_per_second":8461324.9758006111,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.046515,
+                    "elapsed_ms":1.18165,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.046702
+            "total_time_ms":1.181848
         },
-        "test_id":"test_17_onlyset_10k_run_29",
+        "test_id":"test_11_70r_30w_10k_run_29",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1086485.9080061517,
+            "misses":6002,
+            "ops_per_second":2724773.3669752018,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.197544,
+                    "elapsed_ms":3.669635,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.203985
+            "total_time_ms":3.67003
         },
-        "test_id":"test_17_onlyset_10k_run_29",
+        "test_id":"test_11_70r_30w_10k_run_29",
         "total_operations":10000
     },
     {
@@ -2266,77 +2266,77 @@
             "false_positive_rate":0.0,
             "false_positives":0,
             "final_memory_mb":0.0,
-            "hits":0,
+            "hits":1021,
             "memory_evolution":[
                 {
                     "delta_memory_mb":0.0,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":618620.2849921791,
+            "misses":6002,
+            "ops_per_second":691646.111520604,
             "structure":"bloom_filter",
             "time_evolution":[
                 {
-                    "elapsed_ms":16.162096,
+                    "elapsed_ms":14.457908,
                     "operation":10000
                 }
             ],
-            "total_time_ms":16.165005
+            "total_time_ms":14.458261
         },
-        "test_id":"test_17_onlyset_10k_run_30",
+        "test_id":"test_11_70r_30w_10k_run_30",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.4589509964,
-            "hits":0,
+            "final_memory_mb":0.1203222275,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.4589509964,
+                    "delta_memory_mb":0.1203222275,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":4636395.3324480914,
+            "misses":6002,
+            "ops_per_second":8004956.6691695498,
             "structure":"hashset",
             "time_evolution":[
                 {
-                    "elapsed_ms":2.156412,
+                    "elapsed_ms":1.24905,
                     "operation":10000
                 }
             ],
-            "total_time_ms":2.156848
+            "total_time_ms":1.249226
         },
-        "test_id":"test_17_onlyset_10k_run_30",
+        "test_id":"test_11_70r_30w_10k_run_30",
         "total_operations":10000
     },
     {
         "results":{
             "false_positive_rate":0.0,
             "false_positives":0,
-            "final_memory_mb":0.7411775589,
-            "hits":0,
+            "final_memory_mb":0.2199926376,
+            "hits":1021,
             "memory_evolution":[
                 {
-                    "delta_memory_mb":0.7411775589,
+                    "delta_memory_mb":0.2199926376,
                     "operation":10000
                 }
             ],
-            "misses":0,
-            "ops_per_second":1028800.2337434131,
+            "misses":6002,
+            "ops_per_second":2432537.2287660176,
             "structure":"trie",
             "time_evolution":[
                 {
-                    "elapsed_ms":9.715468,
+                    "elapsed_ms":4.110632,
                     "operation":10000
                 }
             ],
-            "total_time_ms":9.72006
+            "total_time_ms":4.110934
         },
-        "test_id":"test_17_onlyset_10k_run_30",
+        "test_id":"test_11_70r_30w_10k_run_30",
         "total_operations":10000
     }
 ]

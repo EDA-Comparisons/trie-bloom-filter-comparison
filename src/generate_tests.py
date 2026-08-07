@@ -1,42 +1,28 @@
 import random
-import string
 
 from src.settings import TXT_DIR
+from src.generate_test_data import generate_usernames
+from faker import Faker
 
-
-def generate_usernames(count, seed=0, prefix=""):
-    """Gera nomes de usuário aleatórios únicos, podendo ter um prefixo inicial."""
-    random.seed(seed)
-    usernames = set()
-    while len(usernames) < count:
-        username = "".join(
-            random.choices(string.ascii_lowercase, k=random.randint(3, 10))
-        )
-        usernames.add(prefix + username)
-    return list(usernames)
-
+faker = Faker()
 
 def generate_nonexistent_usernames(count, existing, seed=0):
     """Gera usernames garantidamente não presentes em `existing`."""
-    random.seed(seed)
+    faker.seed_instance(seed)
     existing_set = set(existing)
     usernames = set()
-    while len(usernames) < count:
-        username = "".join(
-            random.choices(string.ascii_lowercase, k=random.randint(3, 10))
-        )
+    for i in range(count):
+        username = f"{faker.user_name()}{i}"
         if username not in existing_set:
             usernames.add(username)
     return list(usernames)
 
-
-def _order_random(ops, seed=42):
+def _order_random(ops, seed):
     """Embaralha a lista de operações mantendo reprodutibilidade."""
     random.seed(seed)
     result = list(ops)
     random.shuffle(result)
     return result
-
 
 def _order_sorted(ops):
     """Ordena operações alfabeticamente pelo username (segundo campo)."""
@@ -60,7 +46,7 @@ def _order_clustered(ops, prefix_len=2):
     return result
 
 
-def build_operations(config):
+def build_operations(config, pool):
     """
     Função central do core: recebe um dict de configuração e retorna lista de strings "OP username".
 
@@ -88,8 +74,8 @@ def build_operations(config):
     nonexistent = config.get("nonexistent", False)
 
     random.seed(seed)
-
-    pool = generate_usernames(pool_size, seed=seed, prefix=prefix)
+    if pool_size < total_ops:
+        pool = pool[:pool_size]
 
     if nonexistent:
         nonexistent_pool = generate_nonexistent_usernames(
@@ -119,9 +105,9 @@ def build_operations(config):
                 username = pool[set_idx % len(pool)]
                 set_idx += 1
             else:
-                username = random.choice(pool)
+                username = pool[i % len(pool)]
         else:
-            username = random.choice(pool)
+            username = pool[i % len(pool)]
 
         operations.append(f"{chosen_op} {username}")
 
@@ -132,7 +118,7 @@ def build_operations(config):
     elif order == "clustered":
         measured_ops = _order_clustered(measured_ops)
     else:
-        measured_ops = _order_random(measured_ops, seed=seed)
+        measured_ops = _order_random(measured_ops, seed)
 
     return pre_populate_usernames + measured_ops
 

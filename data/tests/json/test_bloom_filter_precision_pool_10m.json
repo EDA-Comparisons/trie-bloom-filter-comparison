@@ -1,0 +1,18 @@
+{
+  "results": {
+    "bloom_filter": {
+      "false_positive_rate": 1.0,
+      "false_positives": 1965,
+      "final_memory_mb": 0.0,
+      "hits": 1965,
+      "memory_evolution": [],
+      "misses": 4998035,
+      "ops_per_second": 2273420.387451448,
+      "structure": "bloom_filter",
+      "time_evolution": [],
+      "total_time_ms": 4398.658539
+    }
+  },
+  "test_id": "test_bloom_filter_precision_pool_10m",
+  "total_operations": 10000000
+}

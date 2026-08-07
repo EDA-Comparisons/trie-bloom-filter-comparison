@@ -9,34 +9,62 @@ Sistema de benchmark para comparar **Bloom Filter**, **Trie** e **HashSet** em c
 ### 1. Compilar
 
 ```bash
-cargo build --manifest-path rust/Cargo.toml --release 
+cargo build --release
 ```
 
-### 2. Executar o experimento
+### 2. Gerar dados de teste
 
 ```bash
-chmod +x benchmark.sh
+uv run -m src.generate_test_data test_data.txt 1000000 0.5 42 mail
 ```
+
+Parâmetros:
+
+- `test_data.txt`: Arquivo de saída
+- `1000000`: Número total de operações
+- `0.5`: Proporção de leituras (0.0-1.0)
+- `42`: Seed para reprodutibilidade
+- `mail`: Prefixo para todos os usernames
+
+### 3. Executar benchmark
+
 ```bash
-./benchmark.sh <load> <seed> <measure-interval> [--verbose]
+./rust/target/release/benchmark <file_path> <measure_interval> <test_id> <save_path> [OPTIONS]
 ```
 
 Parâmetros posicionais:
 
-- `load`: Quantidade de operações totais realizadas no experimento
-- `seed`: Seed para reprodutibilidade
-- `measure_interval`: Intervalo de medição de memória (-1 = apenas final) 
-- `--verbose`: (Opcional) Imprime resultados na stdout
+- `file_path`: Arquivo de operações
+- `measure_interval`: Intervalo de medição (-1 = apenas final)
+- `test_id`: ID do teste (gera `test_id.json`)
+- `save_path`: Caminho para salvar os Jsons
 
+Options:
+
+- `--bloom`: Roda apenas Bloom Filter
+- `--trie`: Roda apenas Trie
+- `--hashset`: Roda apenas HashSet
+- `--verbose`: Imprime resultados na stdout
+- Se nenhuma flag de estrutura for passada, roda todas
 
 Também é possível executar os testes do experimento com todas as estruturas, para isso, no diretório do projeto:
 ```bash
 chmod +x benchmark.sh
 ```
 ```bash
-./benchmark.sh <total_ops>
+./benchmark.sh <total_ops> <seed>
 ```
 - `total_ops`: Número de operações a serem executadas
+- `seed`: Seed para reprodutibilidade
+
+Para executar um teste adicional para testar a precisão do Bloom Filter:
+```bash
+un run -m src.bloom_filter_precision <total_ops> <seed>
+```
+- `total_ops`: Número de operações a serem executadas
+- `seed`: Seed para reprodutibilidade
+
+É recomendado executar com > 10M operações para ter resultados.
 
 ## Formato de Dados
 
@@ -178,13 +206,15 @@ A Trie gastou mais memória que o HashSet, mas realizou mais operações por seg
 - **Vantagens**: Rápido para GET, suporte a SUG e NEW
 - **Desvantagens**: Alto consumo de memória, lento para SUG em grandes datasets
 - **Caso de uso**: Datasets pequenos a médios com muitas leituras
+- **Operacoes Adicionais**: SUG com complexidade O(N * M + logN), NEW com complexidade O(1)
 
 ### Trie
 
-- Usa crate `radix_trie` (trie compactada)
+- Usa crate `radix_trie` (trie compactada) 
 - **Vantagens**: Bom para SUG (autocomplete), memória razoável
 - **Desvantagens**: Mais lento que HashSet para GET puro
 - **Caso de uso**: Quando SUG é importante, datasets médios
+- **Operacoes Adicionais**: SUG com complexidade O(N * M), NEW com complexidade O(1)
 
 ### Bloom Filter
 
@@ -193,6 +223,7 @@ A Trie gastou mais memória que o HashSet, mas realizou mais operações por seg
 - **Desvantagens**: Falsos positivos, sem SUG, sem remoção
 - **Caso de uso**: Verificação rápida com tolerância a falsos positivos
 - **Falsos positivos**: Mensurados via Ground Truth HashSet paralelo
+- **Operacoes Adicionais**: SUG não suportado, NEW com complexidade O(1)
 
 ### Memória não muda
 

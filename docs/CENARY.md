@@ -188,3 +188,10 @@ Objetivo: Medir impacto geral da adição nas estrturas. HashSet e Bloom filter 
 
 Estruturas relevantes: bloom_filter, trie, hashset
 
+### Teste Adicional
+
+- 50% SET E 50% GET com nomes que não foram colocados para TOTAL_OPS operações
+
+Objetivo: Medir taxa de falsos positivos do Bloom Filter
+
+Estruturas relevantes: bloom_filter
