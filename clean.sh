@@ -29,6 +29,7 @@ clean_json_runs(){
     fi
 }
 
+
 case "$1" in
     json)
         clean_json

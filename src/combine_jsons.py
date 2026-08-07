@@ -6,6 +6,7 @@ import pandas as pd
 from collections import defaultdict
 from src.settings import JSON_DIR
 
+
 def combine_benchmark_jsons():
     groups = defaultdict(list)
     pattern = re.compile(r"^test_(?P<number>\d+)_(?P<id>.+)_(?P<load>\d+[km])_run_(?P<run_number>\d+)\.json$")
@@ -13,9 +14,9 @@ def combine_benchmark_jsons():
         name = os.path.basename(file)
         match = pattern.match(name)
         if match:
-            number, id, load, run = match.groups()
-            grupo = (id, load)
-            groups[grupo].append({"path" : file, "run" : int(run)})
+            data = match.groupdict()
+            grupo = (data.get("id"), data.get("load"))
+            groups[grupo].append({"path" : file, "run" : int(data.get("run_number", 0))})
 
         if not match:
             continue

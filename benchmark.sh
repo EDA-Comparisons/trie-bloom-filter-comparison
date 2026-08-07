@@ -1,5 +1,6 @@
 DIR="$(dirname "$0")"
 
 LOAD=$1
-uv run -m src.main $LOAD
+SEED=$2
+uv run -m src.main $LOAD $SEED
 bash "$DIR/clean.sh" benchmark

@@ -3,20 +3,14 @@ import string
 import sys
 
 from src.settings import TXT_DIR
+from faker import Faker
 
+faker = Faker()
 
-def generate_usernames(count, seed=0, prefix=""):
-    """Gera nomes de usuário aleatórios, podendo ter um prefixo inicial ou não"""
-    random.seed(seed)
-    usernames = set()
-    while len(usernames) < count:
-        username = "".join(
-            random.choices(string.ascii_lowercase, k=random.randint(3, 10))
-        )
-        username = prefix + username
-        usernames.add(username)
-    return list(usernames)
-
+def generate_usernames(count, seed=42, prefix=""):
+    """Gera usernames aleatórios únicos"""
+    faker.seed_instance(seed)
+    return [prefix + f"{faker.user_name()}{i}" for i in range(count)]
 
 def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""):
     """
@@ -32,7 +26,6 @@ def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""
     random.seed(seed)
 
     usernames = generate_usernames(int(total_ops * 0.1), seed=seed, prefix=prefix)
-
     with open(TXT_DIR / output_file, "w") as f:
         for i in range(total_ops):
             r = random.random()
@@ -44,8 +37,7 @@ def generate_test_file(output_file, total_ops, read_ratio=0.5, seed=0, prefix=""
                 op = "SET"
             username = random.choice(usernames)
             f.write(f"{op} {username}\n")
-
-
+    
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
