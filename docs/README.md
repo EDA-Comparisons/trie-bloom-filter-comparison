@@ -52,7 +52,7 @@ Também é possível executar os testes do experimento com todas as estruturas, 
 chmod +x benchmark.sh
 ```
 ```bash
-./benchmark.sh <total_ops>
+./benchmark.sh <total_ops> <seed>
 ```
 - `total_ops`: Número de operações a serem executadas
 - `seed`: Seed para reprodutibilidade
